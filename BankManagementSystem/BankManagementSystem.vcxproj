@@ -144,12 +144,14 @@
     <ClCompile Include="Libraries\InputUtils.cpp" />
     <ClCompile Include="Libraries\StringUtils.cpp" />
     <ClCompile Include="Libraries\Utils.cpp" />
+    <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Libraries\Date.h" />
     <ClInclude Include="Libraries\InputUtils.h" />
     <ClInclude Include="Libraries\StringUtils.h" />
     <ClInclude Include="Libraries\Utils.h" />
+    <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
