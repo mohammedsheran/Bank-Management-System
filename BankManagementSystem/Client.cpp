@@ -16,6 +16,7 @@ float Client::_ValidateBalance(const float& balance)
 	throw invalid_argument("Field can not be less than zero.");
 }
 
+Client::Client(const Mode& mode) : Person(), _mode(mode) {}
 Client::Client(const Mode& mode, const string& firstName, const string& lastName, const string& email
 	, const string& phoneNumber, const string& accountNumber, const string& pinCode, const float& accountBalance)
 	: Person(firstName, lastName, email, phoneNumber), _mode(mode), _accountNumber(Person::RequireField(accountNumber)), _pinCode(Person::RequireField(pinCode)), _accountBalance(_ValidateBalance(accountBalance))
@@ -66,17 +67,12 @@ void Client::PrintClientCard() const
 	cout << Utils::Divider(38) << '\n';
 }
 
-Client Client::_GetEmptyClientObject()
-{
-	return Client(Mode::Empty, "", "", "", "", "", "", 0.f);
-}
-
 Client Client::_ConvertLineToClientObject(const string& line, const string& delimiter)
 {
 	vector <string> vString{ StringUtils::Split(line, delimiter) };
 
 	if (vString.size() != 7)
-		return _GetEmptyClientObject();
+		return Client(Mode::Empty);
 
 	return Client(Mode::Update, vString[0], vString[1], vString[2], vString[3], vString[4], vString[5], stod(vString[6]));
 }
@@ -105,7 +101,7 @@ Client Client::Find(const string& fileName, const string& accountNumber)
 	if (!file)
 	{
 		cout << "Failed to open file: " << fileName << '\n';
-		return _GetEmptyClientObject();
+		return Client(Mode::Empty);
 	}
 
 	string line{};
@@ -123,7 +119,7 @@ Client Client::Find(const string& fileName, const string& accountNumber)
 
 	file.close();
 
-	return _GetEmptyClientObject();
+	return Client(Mode::Empty);
 }
 Client Client::Find(const string& fileName, const string& accountNumber, const string& pinCode)
 {
@@ -132,7 +128,7 @@ Client Client::Find(const string& fileName, const string& accountNumber, const s
 	if (!file)
 	{
 		cout << "Failed to open file: " << fileName << '\n';
-		return _GetEmptyClientObject();
+		return Client(Mode::Empty);
 	}
 
 	string line{};
@@ -150,7 +146,7 @@ Client Client::Find(const string& fileName, const string& accountNumber, const s
 
 	file.close();
 
-	return _GetEmptyClientObject();
+	return Client(Mode::Empty);
 }
 
 bool Client::IsClientExists(const string& fileName, const string& accountNumber)

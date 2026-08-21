@@ -12,6 +12,7 @@ private:
 	string _phoneNumber{};
 
 protected:
+	Person() = default;
 
 	static string RequireField(const string& str);
 
