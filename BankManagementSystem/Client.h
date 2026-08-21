@@ -19,6 +19,11 @@ private:
 
 	static float _ValidateBalance(const float& balance);
 
+	static Client _GetEmptyClientObject();
+
+	static Client _ConvertLineToClientObject(const string& line, const string& delimiter = "#:#");
+	static string _ConvertClientObjectToLine(const Client& client, const string& separator = "#:#");
+
 public:
 	Client(const Mode& mode, const string& firstName, const string& lastName, const string& email
 		, const string& phoneNumber, const string& accountNumber, const string& pinCode, const float& accountBalance);

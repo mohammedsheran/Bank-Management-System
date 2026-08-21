@@ -31,7 +31,6 @@ void Client::SetPinCode(const string& pinCode)
 {
 	_pinCode = RequireField(pinCode);
 }
-
 string Client::GetPinCode() const
 {
 	return _pinCode;
@@ -41,7 +40,6 @@ void Client::SetAccountBalance(const float& accountBalance)
 {
 	_accountBalance = _ValidateBalance(accountBalance);
 }
-
 float Client::GetAccountBalance() const
 {
 	return _accountBalance;
@@ -65,4 +63,36 @@ void Client::PrintClientCard() const
 	cout << "\nPIN Code        : " << _pinCode;
 	cout << "\nAccount Balance : " << _accountBalance << '\n';
 	cout << Utils::Divider(38) << '\n';
+}
+
+Client Client::_GetEmptyClientObject()
+{
+	return Client(Mode::Empty, "", "", "", "", "", "", 0.f);
+}
+
+Client Client::_ConvertLineToClientObject(const string& line, const string& delimiter)
+{
+	vector <string> vString{ StringUtils::Split(line, delimiter) };
+
+	if (vString.size() != 7)
+		return _GetEmptyClientObject();
+
+	return Client(Mode::Update, vString[0], vString[1], vString[2], vString[3], vString[4], vString[5], stod(vString[6]));
+}
+string Client::_ConvertClientObjectToLine(const Client& client, const string& separator)
+{
+	if (client._mode == Mode::Empty)
+		return {};
+
+	string line{};
+
+	line = client.FirstName + separator;
+	line = client.LastName + separator;
+	line = client.Email + separator;
+	line = client.PhoneNumber + separator;
+	line = client._accountNumber + separator;
+	line = client._pinCode + separator;
+	line = to_string(client._accountBalance);
+
+	return line;
 }
