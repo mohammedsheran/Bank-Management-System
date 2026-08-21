@@ -40,10 +40,14 @@ public:
 
 	_declspec(property(get = GetAccountNumber)) string AccountNumber;
 	_declspec(property(get = GetPinCode, put = SetPinCode)) string PinCode;
-	_declspec(property(get = GetAccountBalance, put = SetAccountBalance)) string AccountBalance;
+	_declspec(property(get = GetAccountBalance, put = SetAccountBalance)) float AccountBalance;
 
 	bool IsEmpty() const;
 
 	void PrintClientCard() const;
 
+	static Client Find(const string& fileName, const string& accountNumber);
+	static Client Find(const string& fileName, const string& accountNumber, const string& pinCode);
+
+	static bool IsClientExists(const string& fileName, const string& accountNumber);
 };

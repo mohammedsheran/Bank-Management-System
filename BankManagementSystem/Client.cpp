@@ -4,6 +4,7 @@
 #include "Libraries/Utils.h"
 
 #include <string>
+#include <fstream>
 
 float Client::_ValidateBalance(const float& balance)
 {
@@ -54,14 +55,14 @@ void Client::PrintClientCard() const
 {
 	cout << "\nThe following are Client Record : \n";
 	cout << Utils::Divider(38);
-	cout << "\nFirst Name	   : " << FirstName;
-	cout << "\nLast Name	   : " << LastName;
-	cout << "\nFull Name	   : " << GetFullName();
+	cout << "\nFirst Name     : " << FirstName;
+	cout << "\nLast Name      : " << LastName;
+	cout << "\nFull Name      : " << GetFullName();
 	cout << "\nEmail	       : " << Email;
-	cout << "\nPhone Number	   : " << PhoneNumber;
-	cout << "\nAccount Number  : " << _accountNumber;
-	cout << "\nPIN Code        : " << _pinCode;
-	cout << "\nAccount Balance : " << _accountBalance << '\n';
+	cout << "\nPhone Number   : " << PhoneNumber;
+	cout << "\nAccount Number : " << _accountNumber;
+	cout << "\nPIN Code       : " << _pinCode;
+	cout << "\nAccount Balance: " << _accountBalance << '\n';
 	cout << Utils::Divider(38) << '\n';
 }
 
@@ -86,13 +87,75 @@ string Client::_ConvertClientObjectToLine(const Client& client, const string& se
 
 	string line{};
 
-	line = client.FirstName + separator;
-	line = client.LastName + separator;
-	line = client.Email + separator;
-	line = client.PhoneNumber + separator;
-	line = client._accountNumber + separator;
-	line = client._pinCode + separator;
-	line = to_string(client._accountBalance);
+	line += client.FirstName + separator;
+	line += client.LastName + separator;
+	line += client.Email + separator;
+	line += client.PhoneNumber + separator;
+	line += client._accountNumber + separator;
+	line += client._pinCode + separator;
+	line += to_string(client._accountBalance);
 
 	return line;
+}
+
+Client Client::Find(const string& fileName, const string& accountNumber)
+{
+	ifstream file{ fileName };
+
+	if (!file)
+	{
+		cout << "Failed to open file: " << fileName << '\n';
+		return _GetEmptyClientObject();
+	}
+
+	string line{};
+
+	while (getline(file, line))
+	{
+		Client client{ _ConvertLineToClientObject(line) };
+
+		if (client.AccountNumber == accountNumber)
+		{
+			file.close();
+			return client;
+		}
+	}
+
+	file.close();
+
+	return _GetEmptyClientObject();
+}
+Client Client::Find(const string& fileName, const string& accountNumber, const string& pinCode)
+{
+	ifstream file{ fileName };
+
+	if (!file)
+	{
+		cout << "Failed to open file: " << fileName << '\n';
+		return _GetEmptyClientObject();
+	}
+
+	string line{};
+
+	while (getline(file, line))
+	{
+		Client client{ _ConvertLineToClientObject(line) };
+
+		if (client.AccountNumber == accountNumber && client.PinCode == pinCode)
+		{
+			file.close();
+			return client;
+		}
+	}
+
+	file.close();
+
+	return _GetEmptyClientObject();
+}
+
+bool Client::IsClientExists(const string& fileName, const string& accountNumber)
+{
+	Client client{ Find(fileName, accountNumber) };
+
+	return !client.IsEmpty();
 }

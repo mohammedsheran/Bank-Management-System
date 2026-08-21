@@ -11,7 +11,7 @@ string Person::RequireField(const string& str)
 }
 
 Person::Person(const string& firstName, const string& lastName, const string& email, const string& phoneNumber)
-	: _firstName(RequireField(firstName)), _lastName(RequireField(lastName)), _email(RequireField(email)), _phoneNumber(RequireField(_phoneNumber))
+	: _firstName(RequireField(firstName)), _lastName(RequireField(lastName)), _email(RequireField(email)), _phoneNumber(RequireField(phoneNumber))
 {
 
 }
