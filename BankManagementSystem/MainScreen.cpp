@@ -1,6 +1,7 @@
 
 #include "MainScreen.h"
 #include "Libraries/Utils.h"
+#include "Libraries/InputUtils.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -19,4 +20,10 @@ void MainScreen::ShowMainMenuScreen()
         << Utils::Tab(2) << "[8] Logout.\n\n";
 
     cout << Utils::Divider(110) << '\n';
+}
+
+MainScreen::MainMenuOptions MainScreen::_ReadMainMenuOption()
+{
+    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-8]", 1, 8) };
+    return static_cast<MainMenuOptions>(option);
 }
