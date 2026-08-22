@@ -9,7 +9,8 @@ private:
 	enum class Mode
 	{
 		Empty = 1,
-		Update
+		Update,
+		Add
 	};
 
 	Mode _mode{};
@@ -26,9 +27,13 @@ private:
 	static void _SaveClients(const vector <Client>& vClients);
 
 	void _UpdateClient();
+	
+	void _AddClientToFile(const string& line);
+	void _AddClient();
 
 public:
 	Client(const Mode& mode);
+	Client(const Mode& mode, const string& accountNumner);
 	Client(const Mode& mode, const string& firstName, const string& lastName, const string& email
 		, const string& phoneNumber, const string& accountNumber, const string& pinCode, const float& accountBalance);
 
@@ -62,4 +67,6 @@ public:
 	};
 
 	OperationResult Execute();
+
+	static Client GetNewClientForAdd(const string& accountNumber);
 };

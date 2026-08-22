@@ -17,6 +17,7 @@ float Client::_ValidateBalance(const float& balance)
 }
 
 Client::Client(const Mode& mode) : Person(), _mode(mode) {}
+Client::Client(const Mode& mode, const string& accountNumber) : Person(), _mode(mode), _accountNumber(accountNumber) {}
 Client::Client(const Mode& mode, const string& firstName, const string& lastName, const string& email
 	, const string& phoneNumber, const string& accountNumber, const string& pinCode, const float& accountBalance)
 	: Person(firstName, lastName, email, phoneNumber), _mode(mode), _accountNumber(Person::RequireField(accountNumber)), _pinCode(Person::RequireField(pinCode)), _accountBalance(_ValidateBalance(accountBalance))
@@ -224,7 +225,37 @@ Client::OperationResult Client::Execute()
 		_UpdateClient();
 		return OperationResult::Succeeded;
 
+	case Client::Mode::Add:
+		_AddClient();
+		_mode = Mode::Update;
+		return OperationResult::Succeeded;
+
 	default:
 		return OperationResult::Failed;
 	}
 }
+
+Client Client::GetNewClientForAdd(const string& accountNumber)
+{
+	return Client(Mode::Add, accountNumber);
+}
+
+void Client::_AddClientToFile(const string& line)
+{
+	ofstream file{ "Clients.txt", ios::app };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Clients.txt\n";
+		return;
+	}
+
+	file << line << '\n';
+
+	file.close();
+}
+void Client::_AddClient()
+{
+	_AddClientToFile(_ConvertClientObjectToLine(*this));
+}
+

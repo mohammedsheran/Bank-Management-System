@@ -44,7 +44,7 @@ void UpdateClientRecord(Client& client)
     inputValue = InputUtils::ReadString("Enter account balance: ");
     if (!inputValue.empty())
     {
-        client.AccountBalance = stod(inputValue);
+        client.AccountBalance = stof(inputValue);
     }
 }
 
@@ -76,9 +76,47 @@ bool UpdateClient()
     return true;
 }
 
+void ReadNewClient(Client& client)
+{
+    cout << "\nEnter client info.\n";
+
+    client.FirstName = InputUtils::ReadString("\nEnter first name     : ");
+    client.LastName = InputUtils::ReadString("Enter last name      : ");
+    client.Email = InputUtils::ReadString("Enter email          : ");
+    client.PhoneNumber = InputUtils::ReadString("Enter phone number   : ");
+    client.PinCode = InputUtils::ReadString("Enter pin code       : ");
+    client.AccountBalance = InputUtils::ReadFloat("Enter account balamce: ");
+}
+
+bool AddClient()
+{
+    string accountNumber{ InputUtils::ReadString("Enter an account number: ") };
+
+    while (Client::IsClientExists(accountNumber))
+    {
+        cout << "\nClient \'" << accountNumber << "\' already exists.\n";
+        accountNumber = InputUtils::ReadString("Enter another account number: ");
+    }
+
+    Client client{ Client::GetNewClientForAdd(accountNumber) };
+
+    ReadNewClient(client);
+
+    Client::OperationResult opResult{ client.Execute() };
+
+    if (opResult == Client::OperationResult::Failed)
+    {
+        cout << "\nFailed to Add client.\n";
+        return {};
+    }
+
+    cout << "\nClient Added successfully.\n";
+    return true;
+}
+
 int main()
 {
-    UpdateClient();
+    AddClient();
 
     cout << endl;
 
