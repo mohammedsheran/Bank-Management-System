@@ -2,6 +2,7 @@
 #include "MainScreen.h"
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
+#include "ClientListScreen.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -81,7 +82,7 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
 
 void MainScreen::_ShowClientListScreen()
 {
-    cout << "Client List Screen" << endl;
+    ClientListScreen::ShowClientList();
 }
 
 void MainScreen::_ShowAddClientScreen()
