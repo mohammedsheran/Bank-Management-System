@@ -139,6 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddClientScreen.cpp" />
     <ClCompile Include="BankManagementSystem.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientListScreen.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddClientScreen.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientListScreen.h" />
     <ClInclude Include="Libraries\Date.h" />
