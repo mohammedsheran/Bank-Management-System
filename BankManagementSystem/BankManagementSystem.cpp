@@ -5,11 +5,11 @@ using namespace std;
 
 int main()
 {
-    Client client{ Client::Find("Clients.txt", "A100")};
+    Client client{ Client::Find("A100")};
 
     client.PrintClientCard();
 
-    cout << Client::IsClientExists("Clients.txt", "A1100");
+    cout << Client::IsClientExists("A1100");
 
 
     cout << endl;

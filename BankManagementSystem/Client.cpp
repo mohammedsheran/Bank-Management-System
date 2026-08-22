@@ -94,13 +94,13 @@ string Client::_ConvertClientObjectToLine(const Client& client, const string& se
 	return line;
 }
 
-Client Client::Find(const string& fileName, const string& accountNumber)
+Client Client::Find(const string& accountNumber)
 {
-	ifstream file{ fileName };
+	ifstream file{ "Clients.txt" };
 
 	if (!file)
 	{
-		cout << "Failed to open file: " << fileName << '\n';
+		cout << "Failed to open file: Clients.txt\n";
 		return Client(Mode::Empty);
 	}
 
@@ -121,13 +121,13 @@ Client Client::Find(const string& fileName, const string& accountNumber)
 
 	return Client(Mode::Empty);
 }
-Client Client::Find(const string& fileName, const string& accountNumber, const string& pinCode)
+Client Client::Find(const string& accountNumber, const string& pinCode)
 {
-	ifstream file{ fileName };
+	ifstream file{ "Clients.txt"};
 
 	if (!file)
 	{
-		cout << "Failed to open file: " << fileName << '\n';
+		cout << "Failed to open file: Clients.txt\n";
 		return Client(Mode::Empty);
 	}
 
@@ -149,9 +149,33 @@ Client Client::Find(const string& fileName, const string& accountNumber, const s
 	return Client(Mode::Empty);
 }
 
-bool Client::IsClientExists(const string& fileName, const string& accountNumber)
+bool Client::IsClientExists(const string& accountNumber)
 {
-	Client client{ Find(fileName, accountNumber) };
+	Client client{ Find(accountNumber) };
 
 	return !client.IsEmpty();
+}
+
+vector <Client> Client::_LoadClients()
+{
+	vector <Client> vClients{};
+
+	ifstream file{ "Clients.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Clients.txt\n";
+		return {};
+	}
+
+	string line{};
+
+	while (getline(file, line))
+	{
+		vClients.emplace_back(_ConvertLineToClientObject(line));
+	}
+
+	file.close();
+
+	return vClients;
 }

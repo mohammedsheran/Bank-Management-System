@@ -22,6 +22,8 @@ private:
 	static Client _ConvertLineToClientObject(const string& line, const string& delimiter = "#:#");
 	static string _ConvertClientObjectToLine(const Client& client, const string& separator = "#:#");
 
+	static vector <Client> _LoadClients();
+
 public:
 	Client(const Mode& mode);
 	Client(const Mode& mode, const string& firstName, const string& lastName, const string& email
@@ -45,8 +47,8 @@ public:
 
 	void PrintClientCard() const;
 
-	static Client Find(const string& fileName, const string& accountNumber);
-	static Client Find(const string& fileName, const string& accountNumber, const string& pinCode);
+	static Client Find(const string& accountNumber);
+	static Client Find(const string& accountNumber, const string& pinCode);
 
-	static bool IsClientExists(const string& fileName, const string& accountNumber);
+	static bool IsClientExists(const string& accountNumber);
 };
