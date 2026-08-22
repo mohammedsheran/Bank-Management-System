@@ -73,4 +73,6 @@ public:
 	static Client GetNewClientForAdd(const string& accountNumber);
 
 	bool DeleteClient();
+
+	static vector <Client> GetClientList();
 };

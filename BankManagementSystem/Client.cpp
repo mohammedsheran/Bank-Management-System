@@ -294,3 +294,9 @@ bool Client::DeleteClient()
 	_Reset();
 	return true;
 }
+
+vector <Client> Client::GetClientList()
+{
+	return _LoadClients();
+}
+

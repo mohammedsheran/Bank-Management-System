@@ -1,8 +1,10 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "Client.h"
 #include "Libraries/InputUtils.h"
+#include "Libraries/Utils.h"
 using namespace std;
 
 void UpdateClientRecord(Client& client)
@@ -147,10 +149,44 @@ bool DeleteClient()
     return true;
 }
 
+void PrintClientRecord(const Client& client)
+{
+    cout << "| " << left << setw(15) << client.AccountNumber
+        << "| " << setw(20) << client.GetFullName()
+        << "| " << setw(12) << client.PhoneNumber
+        << "| " << setw(20) << client.Email
+        << "| " << setw(15) << client.PinCode
+        << "| " << setw(15) << client.AccountBalance
+        << '\n';
+}
+
+void ShowClientList()
+{
+    vector <Client> vClients{ Client::GetClientList() };
+
+    cout << Utils::Tab(5) << "Client List (" << vClients.size() << ") Client(s)\n";
+    cout << Utils::Divider(110) << '\n';
+
+    cout << "| " << left << setw(15) << "Account Number"
+        << "| " << setw(20) << "Client Name"
+        << "| " << setw(12) << "Phone Number"
+        << "| " << setw(20) << "Email"
+        << "| " << setw(15) << "PIN Code"
+        << "| " << setw(15) << "Account Balance\n";
+
+    cout << Utils::Divider(110) << '\n';
+
+    for (const auto& client : vClients)
+    {
+        PrintClientRecord(client);
+    }
+
+    cout << Utils::Divider(110) << endl;
+}
 
 int main()
 {
-    DeleteClient();
+    ShowClientList();
 
     cout << endl;
 
