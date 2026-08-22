@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{bc293d2a-9112-4e2a-bacd-c7bf20ff554e}</ProjectGuid>
+    <ProjectGuid>{F72A79F4-985D-11A8-2476-6F51ECC13FE1}</ProjectGuid>
     <RootNamespace>BankManagementSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -140,20 +140,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BankManagementSystem.cpp" />
-    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Libraries\Date.cpp" />
     <ClCompile Include="Libraries\InputUtils.cpp" />
     <ClCompile Include="Libraries\StringUtils.cpp" />
     <ClCompile Include="Libraries\Utils.cpp" />
+    <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Client.h" />
     <ClInclude Include="Libraries\Date.h" />
     <ClInclude Include="Libraries\InputUtils.h" />
     <ClInclude Include="Libraries\StringUtils.h" />
     <ClInclude Include="Libraries\Utils.h" />
+    <ClInclude Include="MainScreen.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
