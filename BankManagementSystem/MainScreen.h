@@ -13,13 +13,30 @@ private:
         UpdateClient,
         FindClient,
         Transactions,
-        UserManagement,
+        MangeUser,
         Logout
 	};
 
     static MainMenuOptions _ReadMainMenuOption();
 
     static void _ReturnToMainMenu();
+
+    static void _ShowClientListScreen();
+
+    static void _ShowAddClientScreen();
+
+    static void _ShowDeleteClientScreen();
+
+    static void _ShowUpdateClientScreen();
+
+    static void _ShowFindClientScreen();
+
+    static void _ShowTransactionsMenu();
+
+    static void _ShowMangeUserMenu();
+
+    static void _ShowEndScreen();
+
 
     static void _HandleMainMenuOption(MainMenuOptions option);
 public:

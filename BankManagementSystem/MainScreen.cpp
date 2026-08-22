@@ -5,6 +5,7 @@
 
 void MainScreen::ShowMainMenuScreen()
 {
+    Screen::ClearScreen();
 	Screen::ShowScreenHeader("Main Menu Screen");
 
     cout << Utils::Tab(4) << "[1] Show Client List."
@@ -43,37 +44,77 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
     {
     case MainScreen::MainMenuOptions::ClientList:
         Screen::ClearScreen();
-
+        _ShowClientListScreen();
         break;
     case MainScreen::MainMenuOptions::AddClient:
         Screen::ClearScreen();
-
+        _ShowAddClientScreen();
         break;
     case MainScreen::MainMenuOptions::DeleteClient:
         Screen::ClearScreen();
-
+        _ShowAddClientScreen();
         break;
     case MainScreen::MainMenuOptions::UpdateClient:
         Screen::ClearScreen();
-
+        _ShowDeleteClientScreen();
         break;
     case MainScreen::MainMenuOptions::FindClient:
         Screen::ClearScreen();
-
+        _ShowUpdateClientScreen();
         break;
     case MainScreen::MainMenuOptions::Transactions:
         Screen::ClearScreen();
-
+        _ShowTransactionsMenu();
         break;
-    case MainScreen::MainMenuOptions::UserManagement:
+    case MainScreen::MainMenuOptions::MangeUser:
         Screen::ClearScreen();
-
+        _ShowMangeUserMenu();
         break;
     case MainScreen::MainMenuOptions::Logout:
         Screen::ClearScreen();
-
+        _ShowEndScreen();
         break;
     }
 
     _ReturnToMainMenu();
+}
+
+void MainScreen::_ShowClientListScreen()
+{
+    cout << "Client List Screen" << endl;
+}
+
+void MainScreen::_ShowAddClientScreen()
+{
+    cout << "Add Client Screen" << endl;
+}
+
+void MainScreen::_ShowDeleteClientScreen()
+{
+    cout << "Delete Client Screen" << endl;
+}
+
+void MainScreen::_ShowUpdateClientScreen()
+{
+    cout << "Update Client Screen" << endl;
+}
+
+void MainScreen::_ShowFindClientScreen()
+{
+    cout << "Find Client Screen" << endl;
+}
+
+void MainScreen::_ShowTransactionsMenu()
+{
+    cout << "Transactions Menu" << endl;
+}
+
+void MainScreen::_ShowMangeUserMenu()
+{
+    cout << "Mange User Menu" << endl;
+}
+
+void MainScreen::_ShowEndScreen()
+{
+    cout << "End Screen" << endl;
 }
