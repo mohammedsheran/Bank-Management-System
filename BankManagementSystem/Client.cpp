@@ -179,3 +179,20 @@ vector <Client> Client::_LoadClients()
 
 	return vClients;
 }
+void Client::_SaveClients(const vector <Client>& vClients)
+{
+	ofstream file{ "Clients.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Clients.txt\n";
+		return;
+	}
+
+	for (const auto& client : vClients)
+	{
+		file << _ConvertClientObjectToLine(client) << '\n';
+	}
+
+	file.close();
+}

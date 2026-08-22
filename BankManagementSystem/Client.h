@@ -23,6 +23,7 @@ private:
 	static string _ConvertClientObjectToLine(const Client& client, const string& separator = "#:#");
 
 	static vector <Client> _LoadClients();
+	static void _SaveClients(const vector <Client>& vClients);
 
 public:
 	Client(const Mode& mode);
