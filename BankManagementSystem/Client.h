@@ -55,7 +55,7 @@ public:
 
 	bool IsEmpty() const;
 
-	void PrintClientCard() const;
+	//void PrintClientCard() const;
 
 	static Client Find(const string& accountNumber);
 	static Client Find(const string& accountNumber, const string& pinCode);

@@ -53,20 +53,20 @@ bool Client::IsEmpty() const
 	return (_mode == Mode::Empty);
 }
 
-void Client::PrintClientCard() const
-{
-	cout << "\nThe following are Client Record : \n";
-	cout << Utils::Divider(38);
-	cout << "\nFirst Name     : " << FirstName;
-	cout << "\nLast Name      : " << LastName;
-	cout << "\nFull Name      : " << GetFullName();
-	cout << "\nEmail	       : " << Email;
-	cout << "\nPhone Number   : " << PhoneNumber;
-	cout << "\nAccount Number : " << _accountNumber;
-	cout << "\nPIN Code       : " << _pinCode;
-	cout << "\nAccount Balance: " << _accountBalance << '\n';
-	cout << Utils::Divider(38) << '\n';
-}
+//void Client::PrintClientCard() const
+//{
+//	cout << "\nThe following are Client Record : \n";
+//	cout << Utils::Divider(38);
+//	cout << "\nFirst Name     : " << FirstName;
+//	cout << "\nLast Name      : " << LastName;
+//	cout << "\nFull Name      : " << GetFullName();
+//	cout << "\nEmail	       : " << Email;
+//	cout << "\nPhone Number   : " << PhoneNumber;
+//	cout << "\nAccount Number : " << _accountNumber;
+//	cout << "\nPIN Code       : " << _pinCode;
+//	cout << "\nAccount Balance: " << _accountBalance << '\n';
+//	cout << Utils::Divider(38) << '\n';
+//}
 
 Client Client::_ConvertLineToClientObject(const string& line, const string& delimiter)
 {
