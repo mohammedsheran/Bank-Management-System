@@ -54,6 +54,8 @@ public:
     static string Encrypt(string message, const short& encryptionKey);
 
     static string Decrypt(string message, const short& decryptionKey);
+
+    static string NumberToString(const int& number);
     
     private:
         static CharacterType _GetRandomTypeForMix();

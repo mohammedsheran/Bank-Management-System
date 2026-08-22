@@ -164,6 +164,12 @@ void ShowClientList()
 {
     vector <Client> vClients{ Client::GetClientList() };
 
+    if (vClients.empty())
+    {
+        cout << "\nNo clients available.\n";
+        return;
+    }
+
     cout << Utils::Tab(5) << "Client List (" << vClients.size() << ") Client(s)\n";
     cout << Utils::Divider(110) << '\n';
 
@@ -184,9 +190,51 @@ void ShowClientList()
     cout << Utils::Divider(110) << endl;
 }
 
+void PrintClientBalanceRecord(const Client& client)
+{
+    cout << "| " << left << setw(15) << client.AccountNumber
+        << "| " << setw(40) << client.GetFullName()
+        << "| " << setw(15) << client.AccountBalance
+        << '\n';
+}
+
+void ShowBalanceList()
+{
+    {
+        vector <Client> vClients{ Client::GetClientList() };
+
+        if (vClients.empty())
+        {
+            cout << "\nNo clients available.\n";
+            return;
+        }
+
+        cout << Utils::Tab(5) << "Balance List (" << vClients.size() << ") Client(s)\n";
+        cout << Utils::Divider(110) << '\n';
+
+        cout << "| " << left << setw(15) << "Account Number"
+            << "| " << setw(40) << "Client Name"
+            << "| " << setw(15) << "Account Balance\n";
+
+        cout << Utils::Divider(110) << '\n';
+
+        float totalBalance{};
+
+        for (const auto& client : vClients)
+        {
+            PrintClientBalanceRecord(client);
+            totalBalance += client.AccountBalance;
+        }
+
+        cout << Utils::Divider(110) << endl;
+        cout << Utils::Tab(5) << "Total Balance: " << totalBalance << '\n';
+        cout << Utils::Tab(4) << '(' << Utils::NumberToString(totalBalance) << ")\n";
+    }
+}
+
 int main()
 {
-    ShowClientList();
+    ShowBalanceList();
 
     cout << endl;
 

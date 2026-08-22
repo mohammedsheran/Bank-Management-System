@@ -179,3 +179,47 @@ string Utils::Decrypt(string message, const short& decryptionKey)
 
     return message;
 }
+
+string Utils::NumberToString(const int& number)
+{
+    static const string ones[]
+    {
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+        "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+        "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+    };
+
+    static const string tens[]
+    {
+        "", "", "Twenty", "Thirty", "Forty", "Fifty",
+        "Sixty", "Seventy", "Eighty", "Ninety"
+    };
+
+    if (number == 0)
+        return{};
+
+    else if (number < 20)
+        return ones[number];
+
+    else if (number < 100)
+        if (number % 10 == 0)
+            return tens[number / 10] + NumberToString(number % 10);
+        else
+            return tens[number / 10] + " " + NumberToString(number % 10);
+
+    else if (number < 1000)
+        return NumberToString(number / 100)
+        + " Hundred " + NumberToString(number % 100);
+
+    else if (number < 1000000)
+        return NumberToString(number / 1000)
+        + " Thousand " + NumberToString(number % 1000);
+
+    else if (number < 1000000000)
+        return NumberToString(number / 1000000)
+        + " Million " + NumberToString(number % 1000000);
+
+    else
+        return NumberToString(number / 1000000000)
+        + " Billion " + NumberToString(number % 1000000000);
+}
