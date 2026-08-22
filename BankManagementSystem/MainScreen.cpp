@@ -20,10 +20,60 @@ void MainScreen::ShowMainMenuScreen()
         << Utils::Tab(2) << "[8] Logout.\n\n";
 
     cout << Utils::Divider(110) << '\n';
+
+    _HandleMainMenuOption(_ReadMainMenuOption());
 }
 
 MainScreen::MainMenuOptions MainScreen::_ReadMainMenuOption()
 {
-    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-8]", 1, 8) };
+    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-8]: ", static_cast<short>(1), static_cast<short>(8)) };
     return static_cast<MainMenuOptions>(option);
+}
+
+void MainScreen::_ReturnToMainMenu()
+{
+    Screen::PauseScreen("Press any key to return to main menu...");
+
+    ShowMainMenuScreen();
+}
+
+void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
+{
+    switch (option)
+    {
+    case MainScreen::MainMenuOptions::ClientList:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::AddClient:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::DeleteClient:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::UpdateClient:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::FindClient:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::Transactions:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::UserManagement:
+        Screen::ClearScreen();
+
+        break;
+    case MainScreen::MainMenuOptions::Logout:
+        Screen::ClearScreen();
+
+        break;
+    }
+
+    _ReturnToMainMenu();
 }

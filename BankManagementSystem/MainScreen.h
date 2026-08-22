@@ -17,7 +17,11 @@ private:
         Logout
 	};
 
-    MainMenuOptions _ReadMainMenuOption();
+    static MainMenuOptions _ReadMainMenuOption();
+
+    static void _ReturnToMainMenu();
+
+    static void _HandleMainMenuOption(MainMenuOptions option);
 public:
 	static void ShowMainMenuScreen();
 };
