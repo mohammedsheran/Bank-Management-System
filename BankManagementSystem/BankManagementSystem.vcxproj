@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BankManagementSystem.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="ClientListScreen.cpp" />
     <ClCompile Include="Libraries\Date.cpp" />
     <ClCompile Include="Libraries\InputUtils.cpp" />
     <ClCompile Include="Libraries\StringUtils.cpp" />
@@ -149,6 +151,8 @@
     <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="ClientListScreen.h" />
     <ClInclude Include="Libraries\Date.h" />
     <ClInclude Include="Libraries\InputUtils.h" />
     <ClInclude Include="Libraries\StringUtils.h" />
