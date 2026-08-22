@@ -95,6 +95,24 @@ int InputUtils::ReadPositiveNumber(const string& message)
     return number;
 }
 
+short InputUtils::ReadNumberInRange(const string& message, const short& from, const short& to)
+{
+    short number{};
+
+    do
+    {
+        number = ReadShort(message);
+
+        if ((number < from) || (number > to)) {
+            cout << " Invalid Input!\n\n";
+        }
+
+    } while ((number < from) || (number > to));
+
+    return number;
+
+}
+
 int InputUtils::ReadNumberInRange(const string& message, const int& from, const int& to)
 {
     int number{};

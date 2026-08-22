@@ -18,6 +18,8 @@ public:
 
     static int ReadPositiveNumber(const string& message);
 
+    static short ReadNumberInRange(const string& message, const short& from, const short& to);
+
     static int ReadNumberInRange(const string& message, const int& from, const int& to);
 
     static double ReadNumberInRange(const string& message, const double& from, const double& to);
