@@ -16,6 +16,8 @@ protected:
 
 	static string RequireField(const string& str);
 
+	void ResetPerson();
+
 public:
 	Person(const string& firstName, const string& lastName, const string& email, const string& phoneNumber);
 

@@ -10,13 +10,14 @@ private:
 	{
 		Empty = 1,
 		Update,
-		Add
+		Add,
 	};
 
 	Mode _mode{};
 	string _accountNumber{};
 	string _pinCode{};
 	float _accountBalance{};
+	bool _deletionFlag{};
 
 	static float _ValidateBalance(const float& balance);
 
@@ -24,12 +25,13 @@ private:
 	static string _ConvertClientObjectToLine(const Client& client, const string& separator = "#:#");
 
 	static vector <Client> _LoadClients();
-	static void _SaveClients(const vector <Client>& vClients);
+	static bool _SaveClients(const vector <Client>& vClients);
 
-	void _UpdateClient();
+	bool _UpdateClient();
 	
-	void _AddClientToFile(const string& line);
-	void _AddClient();
+	bool _AddClient();
+
+	void _Reset();
 
 public:
 	Client(const Mode& mode);
@@ -69,4 +71,6 @@ public:
 	OperationResult Execute();
 
 	static Client GetNewClientForAdd(const string& accountNumber);
+
+	bool DeleteClient();
 };

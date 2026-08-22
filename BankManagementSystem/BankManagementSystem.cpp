@@ -114,9 +114,43 @@ bool AddClient()
     return true;
 }
 
+bool DeleteClient()
+{
+    string accountNumber{ InputUtils::ReadString("Enter an account number: ") };
+
+    while (!Client::IsClientExists(accountNumber))
+    {
+        cout << "\nClient \'" << accountNumber << "\' not found.\n";
+        accountNumber = InputUtils::ReadString("Enter another account number: ");
+    }
+
+    Client client{ Client::Find(accountNumber) };
+
+    client.PrintClientCard();
+
+    char answer{ InputUtils::ReadChar("\nAre you sure you want to delete this client? (y/N): ") };
+
+    if (tolower(answer) != 'y')
+    {
+        cout << "\nOperation cancelled.\n";
+        return {};
+    }
+
+
+    if (!client.DeleteClient())
+    {
+        cout << "\nFailed to delete client.\n";
+        return {};
+    }
+
+    cout << "\nClient deleted successfully.\n";
+    return true;
+}
+
+
 int main()
 {
-    AddClient();
+    DeleteClient();
 
     cout << endl;
 

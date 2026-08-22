@@ -180,25 +180,30 @@ vector <Client> Client::_LoadClients()
 
 	return vClients;
 }
-void Client::_SaveClients(const vector <Client>& vClients)
+bool Client::_SaveClients(const vector <Client>& vClients)
 {
 	ofstream file{ "Clients.txt" };
 
 	if (!file)
 	{
 		cout << "Failed to open file: Clients.txt\n";
-		return;
+		return {};
 	}
 
 	for (const auto& client : vClients)
 	{
-		file << _ConvertClientObjectToLine(client) << '\n';
+		if (!client._deletionFlag)
+		{
+			file << _ConvertClientObjectToLine(client) << '\n';
+		}
 	}
 
 	file.close();
+
+	return true;
 }
 
-void Client::_UpdateClient()
+bool Client::_UpdateClient()
 {
 	vector <Client> vClients{ _LoadClients() };
 
@@ -211,7 +216,7 @@ void Client::_UpdateClient()
 		}
 	}
 
-	_SaveClients(vClients);
+	return _SaveClients(vClients);
 }
 
 Client::OperationResult Client::Execute()
@@ -222,17 +227,21 @@ Client::OperationResult Client::Execute()
 		return OperationResult::Failed;
 
 	case Client::Mode::Update:
-		_UpdateClient();
-		return OperationResult::Succeeded;
+		return _UpdateClient() ?
+			OperationResult::Succeeded :
+			OperationResult::Failed;
 
 	case Client::Mode::Add:
-		_AddClient();
+		if (!_AddClient())
+		{
+			return OperationResult::Failed;
+		}
+
 		_mode = Mode::Update;
 		return OperationResult::Succeeded;
-
-	default:
-		return OperationResult::Failed;
 	}
+
+	return OperationResult::Failed;
 }
 
 Client Client::GetNewClientForAdd(const string& accountNumber)
@@ -240,22 +249,48 @@ Client Client::GetNewClientForAdd(const string& accountNumber)
 	return Client(Mode::Add, accountNumber);
 }
 
-void Client::_AddClientToFile(const string& line)
+bool Client::_AddClient()
 {
 	ofstream file{ "Clients.txt", ios::app };
 
 	if (!file)
 	{
 		cout << "Failed to open file: Clients.txt\n";
-		return;
+		return {};
 	}
 
-	file << line << '\n';
+	file << _ConvertClientObjectToLine(*this) << '\n';
 
 	file.close();
-}
-void Client::_AddClient()
-{
-	_AddClientToFile(_ConvertClientObjectToLine(*this));
+
+	return true;
 }
 
+void Client::_Reset()
+{
+	ResetPerson();
+
+	_mode = Mode::Empty;
+	_accountNumber.clear();
+	_pinCode.clear();
+	_accountBalance = 0.f;
+}
+
+bool Client::DeleteClient()
+{
+	vector <Client> vClients{ _LoadClients() };
+
+	for (auto& client : vClients)
+	{
+		if (client.AccountNumber == AccountNumber)
+		{
+			client._deletionFlag = true;
+			break;
+		}
+	}
+	if (!_SaveClients(vClients))
+		return {};
+
+	_Reset();
+	return true;
+}
