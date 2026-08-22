@@ -196,3 +196,35 @@ void Client::_SaveClients(const vector <Client>& vClients)
 
 	file.close();
 }
+
+void Client::_UpdateClient()
+{
+	vector <Client> vClients{ _LoadClients() };
+
+	for (auto& client : vClients)
+	{
+		if (client.AccountNumber == AccountNumber)
+		{
+			client = *this;
+			break;
+		}
+	}
+
+	_SaveClients(vClients);
+}
+
+Client::OperationResult Client::Execute()
+{
+	switch (_mode)
+	{
+	case Client::Mode::Empty:
+		return OperationResult::Failed;
+
+	case Client::Mode::Update:
+		_UpdateClient();
+		return OperationResult::Succeeded;
+
+	default:
+		return OperationResult::Failed;
+	}
+}

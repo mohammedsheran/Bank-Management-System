@@ -25,6 +25,8 @@ private:
 	static vector <Client> _LoadClients();
 	static void _SaveClients(const vector <Client>& vClients);
 
+	void _UpdateClient();
+
 public:
 	Client(const Mode& mode);
 	Client(const Mode& mode, const string& firstName, const string& lastName, const string& email
@@ -52,4 +54,12 @@ public:
 	static Client Find(const string& accountNumber, const string& pinCode);
 
 	static bool IsClientExists(const string& accountNumber);
+
+	enum class OperationResult
+	{
+		Failed,
+		Succeeded
+	};
+
+	OperationResult Execute();
 };
