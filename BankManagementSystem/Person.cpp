@@ -10,8 +10,16 @@ string Person::RequireField(const string& str)
 	throw invalid_argument("Field can not be empty.");
 }
 
+void Person::ResetPerson()
+{
+	_firstName.clear();
+	_lastName.clear();
+	_email.clear();
+	_phoneNumber.clear();
+}
+
 Person::Person(const string& firstName, const string& lastName, const string& email, const string& phoneNumber)
-	: _firstName(RequireField(firstName)), _lastName(RequireField(lastName)), _email(RequireField(email)), _phoneNumber(RequireField(_phoneNumber))
+	: _firstName(RequireField(firstName)), _lastName(RequireField(lastName)), _email(RequireField(email)), _phoneNumber(RequireField(phoneNumber))
 {
 
 }

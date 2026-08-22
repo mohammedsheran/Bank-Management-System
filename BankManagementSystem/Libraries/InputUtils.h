@@ -7,7 +7,7 @@ using namespace std;
 
 class InputUtils
 {
-private:
+public:
     static int ReadInt(const string& message);
 
     static short ReadShort(const string& message);

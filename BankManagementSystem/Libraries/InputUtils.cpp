@@ -1,6 +1,4 @@
-
 #include "InputUtils.h"
-
 #include "Utils.h"
 
 #include <string>
