@@ -75,4 +75,6 @@ public:
 	bool DeleteClient();
 
 	static vector <Client> GetClientList();
+
+	void Deposit(const double& depositAmount);
 };

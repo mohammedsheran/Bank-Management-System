@@ -2,7 +2,8 @@
 #include "TransactionsScreen.h"
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
-#include "MainScreen.h"
+#include "DepositScreen.h"
+
 
 void TransactionsScreen::ShowTransactionsMenuScreen()
 {
@@ -66,7 +67,7 @@ void TransactionsScreen::_ShowBalanceListScreen()
 
 void TransactionsScreen::_ShowDepositScreen()
 {
-	cout << "Deposit Screen" << endl;
+	DepositScreen::ShowDepositScreen();
 }
 
 void TransactionsScreen::_ShowWithdrawScreen()
