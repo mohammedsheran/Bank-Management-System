@@ -300,3 +300,8 @@ vector <Client> Client::GetClientList()
 	return _LoadClients();
 }
 
+void Client::Deposit(const double& depositAmount)
+{
+	_accountBalance += depositAmount;
+	Execute();
+}
