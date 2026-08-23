@@ -144,6 +144,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientListScreen.cpp" />
     <ClCompile Include="DeleteClientScreen.cpp" />
+    <ClCompile Include="DepositScreen.cpp" />
     <ClCompile Include="FindClientScreen.cpp" />
     <ClCompile Include="Libraries\Date.cpp" />
     <ClCompile Include="Libraries\InputUtils.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientListScreen.h" />
     <ClInclude Include="DeleteClientScreen.h" />
+    <ClInclude Include="DepositScreen.h" />
     <ClInclude Include="FindClientScreen.h" />
     <ClInclude Include="Libraries\Date.h" />
     <ClInclude Include="Libraries\InputUtils.h" />
