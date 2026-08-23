@@ -4,5 +4,7 @@
 
 class FindClientScreen : public Screen
 {
+public:
+	static void ShowFindClientScreen();
 };
 
