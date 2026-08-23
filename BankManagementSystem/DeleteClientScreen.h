@@ -4,5 +4,7 @@
 
 class DeleteClientScreen : public Screen
 {
+public:
+    static void ShowDeleteClientScreen();
 };
 
