@@ -14,6 +14,11 @@ private:
 	};
 
 	static TransactionsMenuOptions _ReadTransactionsMenuOptions();
+
+	static void _ReturnToTransactionsMenu();
+
+	static void _HandleTransactionsMenuOption(TransactionsMenuOptions option);
+
 public:
 	static void ShowTransactionsMenuScreen();
 };
