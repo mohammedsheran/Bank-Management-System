@@ -156,6 +156,7 @@
     <ClCompile Include="TransactionsScreen.cpp" />
     <ClCompile Include="UIUtils.cpp" />
     <ClCompile Include="UpdateClientScreen.cpp" />
+    <ClCompile Include="WithdrawScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddClientScreen.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="TransactionsScreen.h" />
     <ClInclude Include="UIUtils.h" />
     <ClInclude Include="UpdateClientScreen.h" />
+    <ClInclude Include="WithdrawScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
