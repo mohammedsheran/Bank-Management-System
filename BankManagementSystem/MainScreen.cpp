@@ -4,6 +4,7 @@
 #include "Libraries/InputUtils.h"
 #include "ClientListScreen.h"
 #include "AddClientScreen.h"
+#include "DeleteClientScreen.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -54,15 +55,15 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
         break;
     case MainScreen::MainMenuOptions::DeleteClient:
         Screen::ClearScreen();
-        _ShowAddClientScreen();
+        _ShowDeleteClientScreen();
         break;
     case MainScreen::MainMenuOptions::UpdateClient:
         Screen::ClearScreen();
-        _ShowDeleteClientScreen();
+        _ShowUpdateClientScreen();
         break;
     case MainScreen::MainMenuOptions::FindClient:
         Screen::ClearScreen();
-        _ShowUpdateClientScreen();
+        _ShowFindClientScreen();
         break;
     case MainScreen::MainMenuOptions::Transactions:
         Screen::ClearScreen();
@@ -93,7 +94,7 @@ void MainScreen::_ShowAddClientScreen()
 
 void MainScreen::_ShowDeleteClientScreen()
 {
-    cout << "Delete Client Screen" << endl;
+    DeleteClientScreen::ShowDeleteClientScreen();
 }
 
 void MainScreen::_ShowUpdateClientScreen()
