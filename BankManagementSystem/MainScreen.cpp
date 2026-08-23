@@ -7,6 +7,7 @@
 #include "DeleteClientScreen.h"
 #include "UpdateClientScreen.h"
 #include "FindClientScreen.h"
+#include "TransactionsScreen.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -111,7 +112,7 @@ void MainScreen::_ShowFindClientScreen()
 
 void MainScreen::_ShowTransactionsMenu()
 {
-    cout << "Transactions Menu" << endl;
+    TransactionsScreen::ShowTransactionsMenuScreen();
 }
 
 void MainScreen::_ShowMangeUserMenu()
