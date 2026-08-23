@@ -17,6 +17,12 @@ private:
 
 	static void _ReturnToTransactionsMenu();
 
+	static void _ShowBalanceListScreen();
+
+	static void _ShowDepositScreen();
+
+	static void _ShowWithdrawScreen();
+
 	static void _HandleTransactionsMenuOption(TransactionsMenuOptions option);
 
 public:

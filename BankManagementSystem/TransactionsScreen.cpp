@@ -39,17 +39,37 @@ void TransactionsScreen::_HandleTransactionsMenuOption(TransactionsMenuOptions o
 	{
 	case TransactionsScreen::TransactionsMenuOptions::BalanceList:
 		Screen::ClearScreen();
+		_ShowBalanceListScreen();
 		break;
+
 	case TransactionsScreen::TransactionsMenuOptions::Deposit:
 		Screen::ClearScreen();
+		_ShowDepositScreen();
 		break;
+
 	case TransactionsScreen::TransactionsMenuOptions::Withdraw:
 		Screen::ClearScreen();
+		_ShowWithdrawScreen();
 		break;
+
 	case TransactionsScreen::TransactionsMenuOptions::MainMenu:
-		MainScreen::ShowMainMenuScreen();
 		return;
 	}
 
 	_ReturnToTransactionsMenu();
+}
+
+void TransactionsScreen::_ShowBalanceListScreen()
+{
+	cout << "Balance List Screen" << endl;
+}
+
+void TransactionsScreen::_ShowDepositScreen()
+{
+	cout << "Deposit Screen" << endl;
+}
+
+void TransactionsScreen::_ShowWithdrawScreen()
+{
+	cout << "Withdraw Screen" << endl;
 }
