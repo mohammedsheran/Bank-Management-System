@@ -5,6 +5,7 @@
 #include "ClientListScreen.h"
 #include "AddClientScreen.h"
 #include "DeleteClientScreen.h"
+#include "UpdateClientScreen.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -99,7 +100,7 @@ void MainScreen::_ShowDeleteClientScreen()
 
 void MainScreen::_ShowUpdateClientScreen()
 {
-    cout << "Update Client Screen" << endl;
+    UpdateClientScreen::ShowUpdateClientScreen();
 }
 
 void MainScreen::_ShowFindClientScreen()
