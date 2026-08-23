@@ -6,6 +6,7 @@
 #include "AddClientScreen.h"
 #include "DeleteClientScreen.h"
 #include "UpdateClientScreen.h"
+#include "FindClientScreen.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -105,7 +106,7 @@ void MainScreen::_ShowUpdateClientScreen()
 
 void MainScreen::_ShowFindClientScreen()
 {
-    cout << "Find Client Screen" << endl;
+    FindClientScreen::ShowFindClientScreen();
 }
 
 void MainScreen::_ShowTransactionsMenu()
