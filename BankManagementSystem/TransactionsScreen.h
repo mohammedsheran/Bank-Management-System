@@ -4,5 +4,7 @@
 
 class TransactionsScreen : public Screen
 {
+public:
+	static void ShowTransactionsMenuScreen();
 };
 
