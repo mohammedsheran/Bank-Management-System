@@ -24,3 +24,41 @@ ManageUsersScreen::ManageUserMenuOptions ManageUsersScreen::_ReadManageUsersMenu
     short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-6]: ", static_cast<short>(1), static_cast<short>(6)) };
     return static_cast<ManageUserMenuOptions>(option);
 }
+
+void ManageUsersScreen::_ReturnToManageUsersMenu()
+{
+    Screen::PauseScreen("\nPress any key to return to manage users menu...");
+
+    ShowManageUsersMenu();
+}
+
+void ManageUsersScreen::_HandleManageUsersMenuOption(ManageUserMenuOptions option)
+{
+    switch (option)
+    {
+    case ManageUsersScreen::ManageUserMenuOptions::UserList:
+        Screen::ClearScreen();
+
+        break;
+    case ManageUsersScreen::ManageUserMenuOptions::AddUser:
+        Screen::ClearScreen();
+
+        break;
+    case ManageUsersScreen::ManageUserMenuOptions::DeleteUser:
+        Screen::ClearScreen();
+
+        break;
+    case ManageUsersScreen::ManageUserMenuOptions::UpdateUser:
+        Screen::ClearScreen();
+
+        break;
+    case ManageUsersScreen::ManageUserMenuOptions::FindUser:
+        Screen::ClearScreen();
+
+        break;
+    case ManageUsersScreen::ManageUserMenuOptions::MainMenu:
+        return;
+    }
+
+    _ReturnToManageUsersMenu();
+}

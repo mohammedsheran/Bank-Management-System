@@ -16,6 +16,10 @@ private:
 	};
 
 	static ManageUserMenuOptions _ReadManageUsersMenuOption();
+
+	static void _ReturnToManageUsersMenu();
+
+	static void _HandleManageUsersMenuOption(ManageUserMenuOptions option);
 public:
 	static void ShowManageUsersMenu();
 };
