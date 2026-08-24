@@ -8,6 +8,7 @@
 #include "UpdateClientScreen.h"
 #include "FindClientScreen.h"
 #include "TransactionsScreen.h"
+#include "ManageUsersScreen.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -21,7 +22,7 @@ void MainScreen::ShowMainMenuScreen()
         << Utils::Tab(2) << "[6] Transactions.\n";
 
     cout << Utils::Tab(4) << "[3] Delete Client."
-        << Utils::Tab(2) << "[7] User Management.\n";
+        << Utils::Tab(2) << "[7] Manage Users.\n";
 
     cout << Utils::Tab(4) << "[4] Update Client."
         << Utils::Tab(2) << "[8] Logout.\n\n";
@@ -117,7 +118,7 @@ void MainScreen::_ShowTransactionsMenu()
 
 void MainScreen::_ShowMangeUsersMenu()
 {
-    cout << "Mange User Menu" << endl;
+    ManageUsersScreen::ShowManageUsersMenu();
 }
 
 void MainScreen::_ShowEndScreen()
