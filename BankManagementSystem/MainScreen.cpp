@@ -72,9 +72,9 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
         Screen::ClearScreen();
         _ShowTransactionsMenu();
         break;
-    case MainScreen::MainMenuOptions::MangeUser:
+    case MainScreen::MainMenuOptions::MangeUsers:
         Screen::ClearScreen();
-        _ShowMangeUserMenu();
+        _ShowMangeUsersMenu();
         break;
     case MainScreen::MainMenuOptions::Logout:
         Screen::ClearScreen();
@@ -115,7 +115,7 @@ void MainScreen::_ShowTransactionsMenu()
     TransactionsScreen::ShowTransactionsMenuScreen();
 }
 
-void MainScreen::_ShowMangeUserMenu()
+void MainScreen::_ShowMangeUsersMenu()
 {
     cout << "Mange User Menu" << endl;
 }

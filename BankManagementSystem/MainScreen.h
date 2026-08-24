@@ -13,7 +13,7 @@ private:
         UpdateClient,
         FindClient,
         Transactions,
-        MangeUser,
+        MangeUsers,
         Logout
 	};
 
@@ -33,10 +33,9 @@ private:
 
     static void _ShowTransactionsMenu();
 
-    static void _ShowMangeUserMenu();
+    static void _ShowMangeUsersMenu();
 
     static void _ShowEndScreen();
-
 
     static void _HandleMainMenuOption(MainMenuOptions option);
 public:

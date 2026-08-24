@@ -2,6 +2,7 @@
 #include "TransactionsScreen.h"
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
+#include "BalanceListScreen.h"
 #include "DepositScreen.h"
 #include "WithdrawScreen.h"
 
@@ -63,7 +64,7 @@ void TransactionsScreen::_HandleTransactionsMenuOption(TransactionsMenuOptions o
 
 void TransactionsScreen::_ShowBalanceListScreen()
 {
-	cout << "Balance List Screen" << endl;
+	BalanceListScreen::ShowBalanceListScreen();
 }
 
 void TransactionsScreen::_ShowDepositScreen()
