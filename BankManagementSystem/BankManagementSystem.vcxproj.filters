@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{e8949cd9-27c1-4ed3-9a80-9fc75f61459e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Screens">
-      <UniqueIdentifier>{8be0dc83-c51c-44f8-aef9-060ce295698d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Screens">
       <UniqueIdentifier>{0c97aa16-6b40-4868-9327-2a6f86cf8ecd}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,9 @@
     </Filter>
     <Filter Include="Header Files\Entities">
       <UniqueIdentifier>{87f0725b-41a5-411d-88bb-9bbf8dcb0853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Screens">
+      <UniqueIdentifier>{8be0dc83-c51c-44f8-aef9-060ce295698d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -78,7 +78,19 @@
     <ClCompile Include="Client.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="WithdrawScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
     <ClCompile Include="TransactionsScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="DepositScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="BalanceListScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageUsersScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,7 +137,19 @@
     <ClInclude Include="Person.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="WithdrawScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
     <ClInclude Include="TransactionsScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="DepositScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="BalanceListScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageUsersScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -152,6 +152,7 @@
     <ClCompile Include="Libraries\StringUtils.cpp" />
     <ClCompile Include="Libraries\Utils.cpp" />
     <ClCompile Include="MainScreen.cpp" />
+    <ClCompile Include="ManageUsersScreen.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="TransactionsScreen.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Libraries\StringUtils.h" />
     <ClInclude Include="Libraries\Utils.h" />
     <ClInclude Include="MainScreen.h" />
+    <ClInclude Include="ManageUsersScreen.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="TransactionsScreen.h" />
