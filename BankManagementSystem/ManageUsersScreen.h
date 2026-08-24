@@ -4,4 +4,6 @@
 
 class ManageUsersScreen : public Screen
 {
+public:
+	static void ShowManageUsersMenu();
 };
