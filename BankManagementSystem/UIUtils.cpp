@@ -1,8 +1,9 @@
 
 #include "UIUtils.h"
 #include "Libraries/Utils.h"
+#include "Libraries/InputUtils.h"
 
-void UIUtils::_PrintClientCard(const Client& client)
+void UIUtils::PrintClientCard(const Client& client)
 {
     cout << "\nThe following are Client Record : \n";
     cout << Utils::Divider(38);

@@ -76,5 +76,7 @@ public:
 
 	static vector <Client> GetClientList();
 
-	void Deposit(const double& depositAmount);
+	bool Deposit(const double& depositAmount);
+
+	bool Withdraw(const double& withdrawAmount);
 };

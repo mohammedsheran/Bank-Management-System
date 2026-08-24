@@ -5,6 +5,6 @@
 class UIUtils
 {
 public:
-	static void _PrintClientCard(const Client& client);
+	static void PrintClientCard(const Client& client);
 };
 

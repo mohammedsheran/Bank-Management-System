@@ -41,5 +41,5 @@ void AddClientScreen::ShowAddClientScreen()
     }
 
     cout << "\nClient Added successfully.\n";
-    UIUtils::_PrintClientCard(client);
+    UIUtils::PrintClientCard(client);
 }

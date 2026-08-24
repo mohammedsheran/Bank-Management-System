@@ -22,7 +22,7 @@ void DeleteClientScreen::ShowDeleteClientScreen()
 
     Client client{ Client::Find(accountNumber) };
 
-    UIUtils::_PrintClientCard(client);
+    UIUtils::PrintClientCard(client);
 
     char answer{ InputUtils::ReadChar("\nAre you sure you want to delete this client? (y/N): ") };
 
@@ -40,5 +40,5 @@ void DeleteClientScreen::ShowDeleteClientScreen()
     }
 
     cout << "\nClient deleted successfully.\n";
-    UIUtils::_PrintClientCard(client);
+    UIUtils::PrintClientCard(client);
 }

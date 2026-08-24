@@ -3,6 +3,7 @@
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
 #include "DepositScreen.h"
+#include "WithdrawScreen.h"
 
 
 void TransactionsScreen::ShowTransactionsMenuScreen()
@@ -23,7 +24,7 @@ void TransactionsScreen::ShowTransactionsMenuScreen()
 
 TransactionsScreen::TransactionsMenuOptions TransactionsScreen::_ReadTransactionsMenuOptions()
 {
-    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-8]: ", static_cast<short>(1), static_cast<short>(4)) };
+    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-4]: ", static_cast<short>(1), static_cast<short>(4)) };
     return static_cast<TransactionsMenuOptions>(option);
 }
 
@@ -72,5 +73,5 @@ void TransactionsScreen::_ShowDepositScreen()
 
 void TransactionsScreen::_ShowWithdrawScreen()
 {
-	cout << "Withdraw Screen" << endl;
+	WithdrawScreen::ShowWithdrawScreen();
 }

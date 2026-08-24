@@ -19,7 +19,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
 
     Client client{ Client::Find(accountNumber) };
 
-    UIUtils::_PrintClientCard(client);
+    UIUtils::PrintClientCard(client);
 
     char answer{ InputUtils::ReadChar("\nAre you sure you want to delete this client? (y/N): ") };
 
@@ -40,7 +40,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
     }
 
     cout << "\nClient updated successfully.\n";
-    UIUtils::_PrintClientCard(client);
+    UIUtils::PrintClientCard(client);
 
 }
 
