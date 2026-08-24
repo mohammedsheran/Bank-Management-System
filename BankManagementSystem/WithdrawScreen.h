@@ -4,4 +4,6 @@
 
 class WithdrawScreen : public Screen
 {
+public:
+	static void ShowWithdrawScreen();
 };

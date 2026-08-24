@@ -8,24 +8,11 @@
 
 using namespace std;
 
-double DepositScreen::_ReadDepositAmount()
-{
-	double depositAmount{ InputUtils::ReadDouble("\nEnter a deposit amount: ") };
-
-	while (depositAmount <= 0)
-	{
-		cout << "\nAmount must be greater than 0.\n";
-		depositAmount = InputUtils::ReadDouble("Enter a valid amount: ");
-	}
-
-	return depositAmount;
-}
-
 void DepositScreen::ShowDepositScreen()
 {
 	Screen::ShowScreenHeader("Deposit Screen");
 
-	string accountNumber{ InputUtils::ReadString("\nEnter an account number: ") };
+	string accountNumber{ InputUtils::ReadString("Enter an account number: ") };
 
 	while (!Client::IsClientExists(accountNumber))
 	{
@@ -35,9 +22,9 @@ void DepositScreen::ShowDepositScreen()
 
 	Client client{ Client::Find(accountNumber) };
 
-	UIUtils::_PrintClientCard(client);
+	UIUtils::PrintClientCard(client);
 	
-	double depositAmount{ _ReadDepositAmount() };
+	double depositAmount{ InputUtils::ReadDouble("\nEnter a deposit amount: ")};
 
 	char answer{ InputUtils::ReadChar("\nAre you sure you want to perform this transaction? (y/N): ") };
 
@@ -47,6 +34,11 @@ void DepositScreen::ShowDepositScreen()
 		return;
 	}
 
-	client.Deposit(depositAmount);
+	if (!client.Deposit(depositAmount))
+	{
+		cout << "\nCan not deposit, amount must be greater than zero!\n";
+		return;
+	}
+
 	cout << "\nDone successfully, new balance is: " << client.AccountBalance << endl;
 }

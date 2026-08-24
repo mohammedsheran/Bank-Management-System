@@ -21,5 +21,5 @@ void FindClientScreen::ShowFindClientScreen()
 	Client client{ Client::Find(accountNumber) };
 
 	cout << "\nClient was found.\n";
-	UIUtils::_PrintClientCard(client);
+	UIUtils::PrintClientCard(client);
 }

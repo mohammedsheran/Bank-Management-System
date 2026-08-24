@@ -300,8 +300,28 @@ vector <Client> Client::GetClientList()
 	return _LoadClients();
 }
 
-void Client::Deposit(const double& depositAmount)
+bool Client::Deposit(const double& depositAmount)
 {
+	if (depositAmount <= 0)
+	{
+		return {};
+	}
+
 	_accountBalance += depositAmount;
 	Execute();
+
+	return true;
+}
+
+bool Client::Withdraw(const double& withdrawAmount)
+{
+	if (withdrawAmount <= 0 || withdrawAmount > _accountBalance)
+	{
+		return {};
+	}
+
+	_accountBalance -= withdrawAmount;
+	Execute();
+
+	return true;
 }
