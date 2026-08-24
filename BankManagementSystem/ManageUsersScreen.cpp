@@ -1,6 +1,7 @@
 
 #include "ManageUsersScreen.h"
 #include "Libraries/Utils.h"
+#include "Libraries/InputUtils.h"
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
@@ -16,4 +17,10 @@ void ManageUsersScreen::ShowManageUsersMenu()
         << Utils::Tab(2) << "[6] Main Menu.\n\n";
 
     cout << Utils::Divider(110) << '\n';
+}
+
+ManageUsersScreen::ManageUserMenuOptions ManageUsersScreen::_ReadManageUsersMenuOption()
+{
+    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-6]: ", static_cast<short>(1), static_cast<short>(6)) };
+    return static_cast<ManageUserMenuOptions>(option);
 }
