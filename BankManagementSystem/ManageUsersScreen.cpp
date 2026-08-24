@@ -5,6 +5,7 @@
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
+    Screen::ClearScreen();
 	Screen::ShowScreenHeader("Manage Users Screen");
 
     cout << Utils::Tab(4) << "[1] Show User List."
@@ -17,6 +18,8 @@ void ManageUsersScreen::ShowManageUsersMenu()
         << Utils::Tab(2) << "[6] Main Menu.\n\n";
 
     cout << Utils::Divider(110) << '\n';
+
+    _HandleManageUsersMenuOption(_ReadManageUsersMenuOption());
 }
 
 ManageUsersScreen::ManageUserMenuOptions ManageUsersScreen::_ReadManageUsersMenuOption()
@@ -38,27 +41,57 @@ void ManageUsersScreen::_HandleManageUsersMenuOption(ManageUserMenuOptions optio
     {
     case ManageUsersScreen::ManageUserMenuOptions::UserList:
         Screen::ClearScreen();
-
+        _ShowUserListScreen();
         break;
+
     case ManageUsersScreen::ManageUserMenuOptions::AddUser:
         Screen::ClearScreen();
-
+        _ShowAddUserScreen();
         break;
+
     case ManageUsersScreen::ManageUserMenuOptions::DeleteUser:
         Screen::ClearScreen();
-
+        _ShowDeleteUserScreen();
         break;
+
     case ManageUsersScreen::ManageUserMenuOptions::UpdateUser:
         Screen::ClearScreen();
-
+        _ShowUpdateUserScreen();
         break;
+
     case ManageUsersScreen::ManageUserMenuOptions::FindUser:
         Screen::ClearScreen();
-
+        _ShowFindUserScreen();
         break;
+
     case ManageUsersScreen::ManageUserMenuOptions::MainMenu:
         return;
     }
 
     _ReturnToManageUsersMenu();
+}
+
+void ManageUsersScreen::_ShowUserListScreen()
+{
+    cout << "User List Screen";
+}
+
+void ManageUsersScreen::_ShowAddUserScreen()
+{
+    cout << "Add User Screen";
+}
+
+void ManageUsersScreen::_ShowDeleteUserScreen()
+{
+    cout << "Delete User Screen";
+}
+
+void ManageUsersScreen::_ShowUpdateUserScreen()
+{
+    cout << "Update User Screen";
+}
+
+void ManageUsersScreen::_ShowFindUserScreen()
+{
+    cout << "Find User Screen";
 }
