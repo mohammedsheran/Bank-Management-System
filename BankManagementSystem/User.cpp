@@ -126,3 +126,65 @@ bool User::_SaveUsers(const vector <User>& vUsers)
 
 	return true;
 }
+
+User User::Find(const string& username)
+{
+	ifstream file{ "Users.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Users.txt\n";
+		return User(Mode::Empty);
+	}
+
+	string line{};
+
+	while (getline(file, line))
+	{
+		User user{ _ConvertLineToUserObject(line) };
+
+		if (user.Username == username)
+		{
+			file.close();
+			return user;
+		}
+	}
+
+	file.close();
+
+	return User(Mode::Empty);
+}
+User User::Find(const string& username, const string& password)
+{
+	ifstream file{ "Users.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Users.txt\n";
+		return User(Mode::Empty);
+	}
+
+	string line{};
+
+	while (getline(file, line))
+	{
+		User user{ _ConvertLineToUserObject(line) };
+
+		if (user.Username == username && user.CheckPassword(password))
+		{
+			file.close();
+			return user;
+		}
+	}
+
+	file.close();
+
+	return User(Mode::Empty);
+}
+
+bool User::IsUserExists(const string& username)
+{
+	User user{ User::Find(username) };
+
+	return !user.IsEmpty();
+}
