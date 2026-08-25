@@ -1,6 +1,7 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
 
 #include "User.h"
 #include "Libraries/StringUtils.h"
@@ -73,4 +74,55 @@ string User::_ConvertUserObjectToLine(const User& user, const string& separator)
 	line += to_string(user._permissions);
 
 	return line;
+}
+
+vector <User> User::_LoadUsers()
+{
+	vector <User> vUsers{};
+
+	ifstream file{ "Users.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Users.txt\n";
+		return {};
+	}
+
+	string line{};
+
+	while (getline(file, line))
+	{
+		vUsers.push_back(_ConvertLineToUserObject(line));
+	}
+
+	file.close();
+
+	return vUsers;
+}
+bool User::_SaveUsers(const vector <User>& vUsers)
+{
+	if (vUsers.empty())
+	{
+		return {};
+	}
+
+	ofstream file{ "Users.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Users.txt\n";
+		return {};
+	}
+
+	for (const auto& user : vUsers)
+	{
+		if (!user._deletionFlag)
+		{
+			file << _ConvertUserObjectToLine(user) << '\n';
+		}
+	}
+
+	file.close();
+
+	return true;
 }

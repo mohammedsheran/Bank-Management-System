@@ -21,6 +21,9 @@ private:
 	static User _ConvertLineToUserObject(const string& line, const string& delimiter = "#:#");
 	static string _ConvertUserObjectToLine(const User& user, const string& separator = "#:#");
 
+	static vector <User> _LoadUsers();
+	static bool _SaveUsers(const vector <User>& vUsers);
+
 public:
 	User(const Mode& mode);
 	User(const Mode& mode, const string& username);
