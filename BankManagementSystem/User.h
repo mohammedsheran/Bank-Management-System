@@ -24,7 +24,9 @@ private:
 	static vector <User> _LoadUsers();
 	static bool _SaveUsers(const vector <User>& vUsers);
 
-	bool _AddUser();
+	bool _AddUser() const;
+
+	bool _UpdateUser() const;
 
 public:
 	User(const Mode& mode);

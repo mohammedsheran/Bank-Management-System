@@ -197,7 +197,9 @@ User::OperationResult User::Execute()
 		return OperationResult::Failed;
 
 	case User::Mode::Update:
-		break;
+		return _UpdateUser() 
+			? OperationResult::Succeeded
+			: OperationResult::Failed;
 
 	case User::Mode::Add:
 		if (!_AddUser())
@@ -212,7 +214,7 @@ User::OperationResult User::Execute()
 	return OperationResult::Failed;
 }
 
-bool User::_AddUser()
+bool User::_AddUser() const
 {
 	ofstream file{ "Users.txt", ios::app };
 
@@ -232,4 +234,25 @@ bool User::_AddUser()
 User User::GetNewUserForAdd(const string& username)
 {
 	return User(Mode::Add, username);
+}
+
+bool User::_UpdateUser() const
+{
+	vector <User> vUsers{ _LoadUsers() };
+
+	if (vUsers.empty())
+	{
+		return {};
+	}
+
+	for (auto& user : vUsers)
+	{
+		if (user.Username == Username)
+		{
+			user = *this;
+			break;
+		}
+	}
+
+	return _SaveUsers(vUsers);
 }
