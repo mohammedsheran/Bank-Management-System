@@ -79,7 +79,7 @@ Client Client::_ConvertLineToClientObject(const string& line, const string& deli
 }
 string Client::_ConvertClientObjectToLine(const Client& client, const string& separator)
 {
-	if (client._mode == Mode::Empty)
+	if (client.IsEmpty())
 		return {};
 
 	string line{};
