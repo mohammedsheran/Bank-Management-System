@@ -256,3 +256,40 @@ bool User::_UpdateUser() const
 
 	return _SaveUsers(vUsers);
 }
+
+void User::_Reset()
+{
+	ResetPerson();
+
+	_mode = Mode::Empty;
+	_username.clear();
+	_password.clear();
+	_permissions = 0;
+}
+
+bool User::DeleteUser()
+{
+	vector <User> vUsers{ _LoadUsers() };
+
+	if (vUsers.empty())
+	{
+		return {};
+	}
+
+	for (auto& user : vUsers)
+	{
+		if (user.Username == Username)
+		{
+			user._deletionFlag = true;
+			break;
+		}
+	}
+
+	if (!_SaveUsers(vUsers))
+	{
+		return {};
+	}
+
+	_Reset();
+	return true;
+}

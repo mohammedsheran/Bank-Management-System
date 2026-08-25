@@ -28,6 +28,8 @@ private:
 
 	bool _UpdateUser() const;
 
+	void _Reset();
+
 public:
 	User(const Mode& mode);
 	User(const Mode& mode, const string& username);
@@ -65,4 +67,5 @@ public:
 
 	static User GetNewUserForAdd(const string& username);
 
+	bool DeleteUser();
 };
