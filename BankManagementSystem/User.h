@@ -15,5 +15,29 @@ private:
 	Mode _mode{};
 	string _username{};
 	string _password{};
+	short _permissions{};
 	bool _deletionFlag{};
+
+public:
+	User(const Mode& mode);
+	User(const Mode& mode, const string& username);
+	User(const Mode& mode, const string& firstName, const string& lastName, const string& email
+		, const string& phoneNumber, const string& username, const string& password, const short& permissions);
+
+	string GetUsername() const;
+
+	void SetPassword(const string& password);
+
+	void SetPermissions(const short& permissions);
+
+	short GetPermissions() const;
+
+	__declspec(property(get = GetUsername)) string Username;
+	__declspec(property(put = Password)) string Username;
+	__declspec(property(get = GetPermissions, put = SetPermissions)) short Permissions;
+
+	bool CheckPassword(const string& password) const;
+
+	bool IsEmpty() const;
+
 };

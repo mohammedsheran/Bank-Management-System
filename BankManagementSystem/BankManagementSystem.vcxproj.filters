@@ -90,11 +90,11 @@
     <ClCompile Include="BalanceListScreen.cpp">
       <Filter>Source Files\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="ManageUsersScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="User.cpp">
       <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ManageUsersScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,11 +152,11 @@
     <ClInclude Include="BalanceListScreen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="ManageUsersScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="User.h">
       <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ManageUsersScreen.h">
+      <Filter>Header Files\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
