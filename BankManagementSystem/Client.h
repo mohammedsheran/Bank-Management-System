@@ -29,7 +29,7 @@ private:
 
 	bool _UpdateClient();
 	
-	bool _AddClient();
+	bool _AddUser();
 
 	void _Reset();
 

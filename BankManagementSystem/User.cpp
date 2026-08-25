@@ -188,3 +188,48 @@ bool User::IsUserExists(const string& username)
 
 	return !user.IsEmpty();
 }
+
+User::OperationResult User::Execute()
+{
+	switch (_mode)
+	{
+	case User::Mode::Empty:
+		return OperationResult::Failed;
+
+	case User::Mode::Update:
+		break;
+
+	case User::Mode::Add:
+		if (!_AddUser())
+		{
+			return OperationResult::Failed;
+		}
+
+		_mode = Mode::Update;
+		return OperationResult::Succeeded;
+	}
+
+	return OperationResult::Failed;
+}
+
+bool User::_AddUser()
+{
+	ofstream file{ "Users.txt", ios::app };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Users.txt\n";
+		return {};
+	}
+
+	file << _ConvertUserObjectToLine(*this) << '\n';
+
+	file.close();
+
+	return true;
+}
+
+User User::GetNewUserForAdd(const string& username)
+{
+	return User(Mode::Add, username);
+}

@@ -232,7 +232,7 @@ Client::OperationResult Client::Execute()
 			OperationResult::Failed;
 
 	case Client::Mode::Add:
-		if (!_AddClient())
+		if (!_AddUser())
 		{
 			return OperationResult::Failed;
 		}
@@ -249,7 +249,7 @@ Client Client::GetNewClientForAdd(const string& accountNumber)
 	return Client(Mode::Add, accountNumber);
 }
 
-bool Client::_AddClient()
+bool Client::_AddUser()
 {
 	ofstream file{ "Clients.txt", ios::app };
 

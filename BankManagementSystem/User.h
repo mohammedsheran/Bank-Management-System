@@ -24,6 +24,8 @@ private:
 	static vector <User> _LoadUsers();
 	static bool _SaveUsers(const vector <User>& vUsers);
 
+	bool _AddUser();
+
 public:
 	User(const Mode& mode);
 	User(const Mode& mode, const string& username);
@@ -50,5 +52,15 @@ public:
 	static User Find(const string& username, const string& password);
 
 	static bool IsUserExists(const string& username);
+
+	enum class OperationResult
+	{
+		Failed = 1, 
+		Succeeded
+	};
+
+	OperationResult Execute();
+
+	static User GetNewUserForAdd(const string& username);
 
 };
