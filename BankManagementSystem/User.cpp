@@ -293,3 +293,8 @@ bool User::DeleteUser()
 	_Reset();
 	return true;
 }
+
+vector <User> User::GetUserList()
+{
+	return _LoadUsers();
+}

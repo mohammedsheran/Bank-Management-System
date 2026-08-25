@@ -68,4 +68,6 @@ public:
 	static User GetNewUserForAdd(const string& username);
 
 	bool DeleteUser();
+
+	static vector <User> GetUserList();
 };
