@@ -93,6 +93,9 @@
     <ClCompile Include="ManageUsersScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Libraries\Utils.h">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="ManageUsersScreen.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
