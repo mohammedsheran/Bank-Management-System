@@ -96,7 +96,22 @@
     <ClCompile Include="ManageUsersScreen.cpp">
       <Filter>Source Files\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="AddUserScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteUserScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="FindUserScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateUserScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
     <ClCompile Include="UserListScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -161,7 +176,22 @@
     <ClInclude Include="ManageUsersScreen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
+    <ClInclude Include="AddUserScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteUserScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="FindUserScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateUserScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
     <ClInclude Include="UserListScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

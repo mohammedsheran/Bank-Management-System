@@ -154,6 +154,7 @@
     <ClCompile Include="Libraries\InputUtils.cpp" />
     <ClCompile Include="Libraries\StringUtils.cpp" />
     <ClCompile Include="Libraries\Utils.cpp" />
+    <ClCompile Include="LoginScreen.cpp" />
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="ManageUsersScreen.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Libraries\InputUtils.h" />
     <ClInclude Include="Libraries\StringUtils.h" />
     <ClInclude Include="Libraries\Utils.h" />
+    <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="ManageUsersScreen.h" />
     <ClInclude Include="Person.h" />
