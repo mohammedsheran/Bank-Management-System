@@ -35,18 +35,6 @@ void User::SetPermissions(const short& permissions)
 	_permissions = permissions;
 }
 
-enum class Permissions
-{
-	FullAccess = -1,
-	ClientList = 1,
-	AddClient = 2,
-	DeleteClient = 4,
-	UpdateClient = 8,
-	FindClient = 16,
-	Transactions = 32,
-	ManageUsers = 64
-};
-
 short User::GetPermissions() const
 {
 	return _permissions;
@@ -314,4 +302,9 @@ bool User::DeleteUser()
 vector <User> User::GetUserList()
 {
 	return _LoadUsers();
+}
+
+void User::AddPermission(short& permissions, const UserPermissions& userPermissions)
+{
+	permissions |= static_cast<short>(userPermissions);
 }

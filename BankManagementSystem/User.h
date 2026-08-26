@@ -44,12 +44,24 @@ public:
 
 	string GetPassword() const;
 
+	enum class UserPermissions
+	{
+		FullAccess = -1,
+		ClientList = 1,
+		AddClient = 2,
+		DeleteClient = 4,
+		UpdateClient = 8,
+		FindClient = 16,
+		Transactions = 32,
+		ManageUsers = 64
+	};
+
 	void SetPermissions(const short& permissions);
 
 	short GetPermissions() const;
 
 	__declspec(property(get = GetUsername)) string Username;
-	__declspec(property(get = GetPassword, put = Password)) string Password;
+	__declspec(property(get = GetPassword, put = SetPassword)) string Password;
 	__declspec(property(get = GetPermissions, put = SetPermissions)) short Permissions;
 
 	bool CheckPassword(const string& Password) const;
@@ -74,4 +86,8 @@ public:
 	bool DeleteUser();
 
 	static vector <User> GetUserList();
+
+	static void AddPermission(short& permissions, const UserPermissions& userPermissions);
+
+	//static bool HasPermissions(const short& permissions, const UserPermissions& userPermissions);
 };
