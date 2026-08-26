@@ -2,6 +2,7 @@
 #include "ManageUsersScreen.h"
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
+#include "UserListScreen.h"
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
@@ -73,7 +74,7 @@ void ManageUsersScreen::_HandleManageUsersMenuOption(ManageUserMenuOptions optio
 
 void ManageUsersScreen::_ShowUserListScreen()
 {
-    cout << "User List Screen";
+    UserListScreen::ShowUserListScreen();
 }
 
 void ManageUsersScreen::_ShowAddUserScreen()
