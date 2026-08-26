@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Person.h"
 
 class User : public Person
@@ -38,22 +40,24 @@ public:
 
 	string GetUsername() const;
 
-	void SetPassword(const string& password);
+	void SetPassword(const string& Password);
+
+	string GetPassword() const;
 
 	void SetPermissions(const short& permissions);
 
 	short GetPermissions() const;
 
 	__declspec(property(get = GetUsername)) string Username;
-	__declspec(property(put = Password)) string password;
+	__declspec(property(get = GetPassword, put = Password)) string Password;
 	__declspec(property(get = GetPermissions, put = SetPermissions)) short Permissions;
 
-	bool CheckPassword(const string& password) const;
+	bool CheckPassword(const string& Password) const;
 
 	bool IsEmpty() const;
 
 	static User Find(const string& username);
-	static User Find(const string& username, const string& password);
+	static User Find(const string& username, const string& Password);
 
 	static bool IsUserExists(const string& username);
 

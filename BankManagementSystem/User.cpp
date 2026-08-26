@@ -9,8 +9,8 @@
 User::User(const Mode& mode) : Person(), _mode(mode) {}
 User::User(const Mode& mode, const string& username) : Person(), _mode(mode), _username(RequireField(username)) {}
 User::User(const Mode& mode, const string& firstName, const string& lastName, const string& email
-	, const string& phoneNumber, const string& username, const string& password, const short& permissions)
-	: Person(firstName, lastName, email, phoneNumber), _username(RequireField(username)), _password(RequireField(password)), _permissions(permissions)
+	, const string& phoneNumber, const string& username, const string& Password, const short& permissions)
+	: Person(firstName, lastName, email, phoneNumber), _username(RequireField(username)), _password(RequireField(Password)), _permissions(permissions)
 { 
 
 }
@@ -20,9 +20,14 @@ string User::GetUsername() const
 	return _username;
 }
 
-void User::SetPassword(const string& password)
+void User::SetPassword(const string& Password)
 {
-	_password = RequireField(password);
+	_password = RequireField(Password);
+}
+
+string User::GetPassword() const
+{
+	return _password;
 }
 
 void User::SetPermissions(const short& permissions)
@@ -35,9 +40,9 @@ short User::GetPermissions() const
 	return _permissions;
 }
 
-bool User::CheckPassword(const string& password) const
+bool User::CheckPassword(const string& Password) const
 {
-	return (_password == password);
+	return (_password == Password);
 }
 
 bool User::IsEmpty() const
@@ -154,7 +159,7 @@ User User::Find(const string& username)
 
 	return User(Mode::Empty);
 }
-User User::Find(const string& username, const string& password)
+User User::Find(const string& username, const string& Password)
 {
 	ifstream file{ "Users.txt" };
 
@@ -170,7 +175,7 @@ User User::Find(const string& username, const string& password)
 	{
 		User user{ _ConvertLineToUserObject(line) };
 
-		if (user.Username == username && user.CheckPassword(password))
+		if (user.Username == username && user.CheckPassword(Password))
 		{
 			file.close();
 			return user;
