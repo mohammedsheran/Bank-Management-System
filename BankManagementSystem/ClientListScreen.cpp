@@ -21,14 +21,14 @@ void ClientListScreen::ShowClientList()
 {
     vector <Client> vClients{ Client::GetClientList() };
 
+    Screen::ShowScreenHeader("Client List Screen",
+        to_string(vClients.size()) + " Client(s).");
+
     if (vClients.empty())
     {
         cout << "\nNo clients available.\n";
         return;
     }
-
-    Screen::ShowScreenHeader("Client List Screen",
-        to_string(vClients.size()) + " Client(s).");
 
     cout << "| " << left << setw(15) << "Account Number"
         << "| " << setw(20) << "Client Name"
