@@ -4,6 +4,7 @@
 #include "Libraries/InputUtils.h"
 #include "UserListScreen.h"
 #include "AddUserScreen.h"
+#include "DeleteUserScreen.h"
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
@@ -85,7 +86,7 @@ void ManageUsersScreen::_ShowAddUserScreen()
 
 void ManageUsersScreen::_ShowDeleteUserScreen()
 {
-    cout << "Delete User Screen";
+    DeleteUserScreen::ShowDeleteUserScreen();
 }
 
 void ManageUsersScreen::_ShowUpdateUserScreen()
