@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddClientScreen.cpp" />
+    <ClCompile Include="AddUserScreen.cpp" />
     <ClCompile Include="BalanceListScreen.cpp" />
     <ClCompile Include="BankManagementSystem.cpp" />
     <ClCompile Include="Client.cpp" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddClientScreen.h" />
+    <ClInclude Include="AddUserScreen.h" />
     <ClInclude Include="BalanceListScreen.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientListScreen.h" />

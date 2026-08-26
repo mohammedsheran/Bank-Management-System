@@ -303,3 +303,8 @@ vector <User> User::GetUserList()
 {
 	return _LoadUsers();
 }
+
+void User::AddPermission(short& permissions, const UserPermissions& userPermissions)
+{
+	permissions |= static_cast<short>(userPermissions);
+}

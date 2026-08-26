@@ -21,14 +21,14 @@ void UserListScreen::ShowUserListScreen()
 {
     vector <User> vUsers{ User::GetUserList() };
 
+    Screen::ShowScreenHeader("User List Screen",
+        to_string(vUsers.size()) + " User(s).");
+
     if (vUsers.empty())
     {
         cout << "\nNo Users available.\n";
         return;
     }
-
-    Screen::ShowScreenHeader("User List Screen",
-        to_string(vUsers.size()) + " User(s).");
 
     cout << "| " << left << setw(12) << "Username"
         << "| " << setw(25) << "Full Name"

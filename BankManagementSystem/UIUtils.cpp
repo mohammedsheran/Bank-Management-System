@@ -17,3 +17,18 @@ void UIUtils::PrintClientCard(const Client& client)
     cout << "\nAccount Balance: " << client.AccountBalance << '\n';
     cout << Utils::Divider(38) << '\n';
 }
+
+void UIUtils::PrintUserCard(const User& user)
+{
+    cout << "\nThe following are User Record : \n";
+    cout << Utils::Divider(38);
+    cout << "\nFirst Name  : " << user.FirstName;
+    cout << "\nLast Name   : " << user.LastName;
+    cout << "\nFull Name   : " << user.GetFullName();
+    cout << "\nEmail	    : " << user.Email;
+    cout << "\nPhone Number: " << user.PhoneNumber;
+    cout << "\nUsername    : " << user.Username;
+    cout << "\nPassword    : " << user.Password;
+    cout << "\nPermissions : " << user.Permissions << '\n';
+    cout << Utils::Divider(38) << '\n';
+}
