@@ -150,10 +150,12 @@
     <ClCompile Include="DepositScreen.cpp" />
     <ClCompile Include="FindClientScreen.cpp" />
     <ClCompile Include="FindUserScreen.cpp" />
+    <ClCompile Include="Global.cpp" />
     <ClCompile Include="Libraries\Date.cpp" />
     <ClCompile Include="Libraries\InputUtils.cpp" />
     <ClCompile Include="Libraries\StringUtils.cpp" />
     <ClCompile Include="Libraries\Utils.cpp" />
+    <ClCompile Include="LoginScreen.cpp" />
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="ManageUsersScreen.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -177,10 +179,12 @@
     <ClInclude Include="DepositScreen.h" />
     <ClInclude Include="FindClientScreen.h" />
     <ClInclude Include="FindUserScreen.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="Libraries\Date.h" />
     <ClInclude Include="Libraries\InputUtils.h" />
     <ClInclude Include="Libraries\StringUtils.h" />
     <ClInclude Include="Libraries\Utils.h" />
+    <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="ManageUsersScreen.h" />
     <ClInclude Include="Person.h" />
