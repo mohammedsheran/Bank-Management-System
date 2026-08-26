@@ -114,6 +114,9 @@
     <ClCompile Include="LoginScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Libraries\Utils.h">
@@ -192,6 +195,9 @@
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
     <ClInclude Include="LoginScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

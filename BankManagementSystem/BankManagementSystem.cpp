@@ -1,13 +1,13 @@
 
 #include <iostream>
 
-#include "MainScreen.h"
+#include "LoginScreen.h"
 
 using namespace std;
 
 int main()
 {
-    MainScreen::ShowMainMenuScreen();
+    LoginScreen::ShowLoginScreen();
 
     cout << endl;
 
