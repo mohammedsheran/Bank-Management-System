@@ -9,6 +9,7 @@
 #include "FindClientScreen.h"
 #include "TransactionsScreen.h"
 #include "ManageUsersScreen.h"
+#include "Global.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -79,8 +80,8 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
         break;
     case MainScreen::MainMenuOptions::Logout:
         Screen::ClearScreen();
-        _ShowEndScreen();
-        break;
+        _Logout();
+        return;
     }
 
     _ReturnToMainMenu();
@@ -121,7 +122,7 @@ void MainScreen::_ShowMangeUsersMenu()
     ManageUsersScreen::ShowManageUsersMenu();
 }
 
-void MainScreen::_ShowEndScreen()
+void MainScreen::_Logout()
 {
-    cout << "End Screen" << endl;
+    currentUser = User::Find("", "");
 }
