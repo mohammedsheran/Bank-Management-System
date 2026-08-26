@@ -7,7 +7,10 @@ using namespace std;
 
 int main()
 {
-    LoginScreen::ShowLoginScreen();
+	while (true)
+	{
+		LoginScreen::ShowLoginScreen();
+	}
 
     cout << endl;
 

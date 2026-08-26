@@ -35,7 +35,7 @@ private:
 
     static void _ShowMangeUsersMenu();
 
-    static void _ShowEndScreen();
+    static void _Logout();
 
     static void _HandleMainMenuOption(MainMenuOptions option);
 public:
