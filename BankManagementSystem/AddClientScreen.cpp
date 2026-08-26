@@ -18,6 +18,11 @@ void AddClientScreen::_ReadClient(Client& client)
 
 void AddClientScreen::ShowAddClientScreen()
 {
+    if (!Screen::CheckAccessRight(User::UserPermissions::AddClient))
+    {
+        return;
+    }
+
     Screen::ShowScreenHeader("Add Client Screen");
 
     string accountNumber{ InputUtils::ReadString("Enter an account number: ") };

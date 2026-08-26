@@ -10,6 +10,11 @@ using namespace std;
 
 void DeleteClientScreen::ShowDeleteClientScreen()
 {
+    if (!Screen::CheckAccessRight(User::UserPermissions::DeleteClient))
+    {
+        return;
+    }
+
     Screen::ShowScreenHeader("Delete Client Screen");
 
     string accountNumber{ InputUtils::ReadString("Enter an account number: ") };

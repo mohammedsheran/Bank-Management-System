@@ -7,6 +7,11 @@
 
 void UpdateClientScreen::ShowUpdateClientScreen()
 {
+    if (!Screen::CheckAccessRight(User::UserPermissions::UpdateClient))
+    {
+        return;
+    }
+
     Screen::ShowScreenHeader("Update Client Screen");
 
     string accountNumber{ InputUtils::ReadString("Enter an account number: ") };

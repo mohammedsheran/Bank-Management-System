@@ -9,6 +9,11 @@
 
 void TransactionsScreen::ShowTransactionsMenuScreen()
 {
+	if (!Screen::CheckAccessRight(User::UserPermissions::Transactions))
+	{
+		return;
+	}
+
     Screen::ClearScreen();
 	Screen::ShowScreenHeader("Transactions Screen");
 

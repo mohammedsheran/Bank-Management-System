@@ -8,6 +8,11 @@
 
 void FindClientScreen::ShowFindClientScreen()
 {
+	if (!Screen::CheckAccessRight(User::UserPermissions::FindClient))
+	{
+		return;
+	}
+
 	Screen::ShowScreenHeader("Find Client Screeen");
 
 	string accountNumber{ InputUtils::ReadString("\nEnter an account number: ") };

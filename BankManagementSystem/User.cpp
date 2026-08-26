@@ -316,3 +316,12 @@ void User::AddPermission(short& permissions, const UserPermissions& userPermissi
 {
 	permissions |= static_cast<short>(userPermissions);
 }
+bool User::HasPermissions(const UserPermissions& userPermissions)
+{
+	if (_permissions == static_cast<short>(UserPermissions::FullAccess))
+	{
+		return true;
+	}
+
+	return ((_permissions & static_cast<short>(userPermissions)) != 0);
+}
