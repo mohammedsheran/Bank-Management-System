@@ -10,7 +10,7 @@ User::User(const Mode& mode) : Person(), _mode(mode) {}
 User::User(const Mode& mode, const string& username) : Person(), _mode(mode), _username(RequireField(username)) {}
 User::User(const Mode& mode, const string& firstName, const string& lastName, const string& email
 	, const string& phoneNumber, const string& username, const string& Password, const short& permissions)
-	: Person(firstName, lastName, email, phoneNumber), _username(RequireField(username)), _password(RequireField(Password)), _permissions(permissions)
+	: Person(firstName, lastName, email, phoneNumber), _mode(mode), _username(RequireField(username)), _password(RequireField(Password)), _permissions(permissions)
 { 
 
 }
