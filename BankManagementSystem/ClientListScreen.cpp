@@ -19,6 +19,11 @@ void ClientListScreen::_PrintClientRecord(const Client& client)
 
 void ClientListScreen::ShowClientList()
 {
+    if (!Screen::CheckAccessRight(User::UserPermissions::ClientList))
+    {
+        return;
+    }
+
     vector <Client> vClients{ Client::GetClientList() };
 
     Screen::ShowScreenHeader("Client List Screen",

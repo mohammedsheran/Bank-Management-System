@@ -1,6 +1,7 @@
 
 #include "Screen.h"
 #include "Libraries/Utils.h"
+#include "Global.h"
 
 using namespace std;
 
@@ -23,4 +24,15 @@ void Screen::PauseScreen(const string& message)
 void Screen::ClearScreen()
 {
     system("cls");
+}
+
+bool Screen::CheckAccessRight(const User::UserPermissions& userPermissions)
+{
+    if (!currentUser.HasPermissions(userPermissions))
+    {
+        ShowScreenHeader("Access Denied");
+        return {};
+    }
+
+    return true;
 }

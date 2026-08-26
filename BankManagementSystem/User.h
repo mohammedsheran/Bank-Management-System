@@ -89,5 +89,5 @@ public:
 
 	static void AddPermission(short& permissions, const UserPermissions& userPermissions);
 
-	//static bool HasPermissions(const short& permissions, const UserPermissions& userPermissions);
+	bool HasPermissions(const UserPermissions& userPermissions);
 };

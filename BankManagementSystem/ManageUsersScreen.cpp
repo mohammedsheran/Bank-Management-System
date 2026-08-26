@@ -10,6 +10,11 @@
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
+    if (!Screen::CheckAccessRight(User::UserPermissions::ManageUsers))
+    {
+        return;
+    }
+
     Screen::ClearScreen();
 	Screen::ShowScreenHeader("Manage Users Screen");
 

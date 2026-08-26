@@ -71,11 +71,9 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
         _ShowFindClientScreen();
         break;
     case MainScreen::MainMenuOptions::Transactions:
-        Screen::ClearScreen();
         _ShowTransactionsMenu();
         break;
     case MainScreen::MainMenuOptions::MangeUsers:
-        Screen::ClearScreen();
         _ShowMangeUsersMenu();
         break;
     case MainScreen::MainMenuOptions::Logout:
