@@ -5,16 +5,30 @@
 #include "Global.h"
 #include "MainScreen.h"
 
-void LoginScreen::_Login()
+bool LoginScreen::_Login()
 {
-	char loginFailed{};
+	bool loginFailed{};
+	short loginAttempts{};
 
 	do
 	{
+
 		if (loginFailed)
 		{
-			cout << "\nInvalid username or password.\n";
+			loginAttempts++;
+
+			cout << "\nInvalid username or password.";
+			if (loginAttempts != 3)
+			{
+				cout << "\nYou have \'" << (3 - loginAttempts) << "\' attempts left.\n\n";
+			}
+			else
+			{
+				cout << "\nYou have exceeded the maximum number of login attempts.\n\n";
+				return {};
+			}
 		}
+		
 
 		string username{ InputUtils::ReadString("Enter an username: ") };
 		string password{ InputUtils::ReadString("Enter a password : ") };
@@ -26,12 +40,13 @@ void LoginScreen::_Login()
 	} while (loginFailed);
 
 	MainScreen::ShowMainMenuScreen();
+	return true;
 }
 
-void LoginScreen::ShowLoginScreen()
+bool LoginScreen::ShowLoginScreen()
 {
 	Screen::ClearScreen();
 	Screen::ShowScreenHeader("Login Screen");
 
-	_Login();
+	return _Login();
 }

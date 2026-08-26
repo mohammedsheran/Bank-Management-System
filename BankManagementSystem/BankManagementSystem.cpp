@@ -9,7 +9,10 @@ int main()
 {
 	while (true)
 	{
-		LoginScreen::ShowLoginScreen();
+		if (!LoginScreen::ShowLoginScreen())
+		{
+			break;
+		}
 	}
 
     cout << endl;
