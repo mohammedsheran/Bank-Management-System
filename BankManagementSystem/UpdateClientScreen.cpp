@@ -21,7 +21,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
 
     UIUtils::PrintClientCard(client);
 
-    char answer{ InputUtils::ReadChar("\nAre you sure you want to delete this client? (y/N): ") };
+    char answer{ InputUtils::ReadChar("\nAre you sure you want to update this client? (y/N): ") };
 
     if (tolower(answer) != 'y')
     {

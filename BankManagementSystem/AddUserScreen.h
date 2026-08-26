@@ -6,7 +6,6 @@
 class AddUserScreen : public Screen
 {
 private:
-	static short _ReadUserPermissions();
 	static void _ReadUser(User& user);
 public:
 	static void ShowAddUserScreen();

@@ -7,6 +7,10 @@ class UIUtils
 {
 public:
 	static void PrintClientCard(const Client& client);
+
 	static void PrintUserCard(const User& user);
+
+	static short ReadUserPermissions();
+
 };
 
