@@ -17,7 +17,7 @@ void LoginScreen::_Login()
 		}
 
 		string username{ InputUtils::ReadString("Enter an username: ") };
-		string password{ InputUtils::ReadString("Enter a password: ") };
+		string password{ InputUtils::ReadString("Enter a password : ") };
 
 		currentUser = User::Find(username, password);
 
