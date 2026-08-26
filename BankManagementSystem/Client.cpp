@@ -280,16 +280,32 @@ bool Client::DeleteClient()
 {
 	vector <Client> vClients{ _LoadClients() };
 
+	if (vClients.empty())
+	{
+		return {};
+	}
+
+	bool clientFound{};
+
 	for (auto& client : vClients)
 	{
 		if (client.AccountNumber == AccountNumber)
 		{
 			client._deletionFlag = true;
+			clientFound = true;
 			break;
 		}
 	}
-	if (!_SaveClients(vClients))
+
+	if (!clientFound)
+	{
 		return {};
+	}
+
+	if (!_SaveClients(vClients))
+	{
+		return {};
+	}
 
 	_Reset();
 	return true;
