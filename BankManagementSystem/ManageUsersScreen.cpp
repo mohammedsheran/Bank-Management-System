@@ -6,6 +6,7 @@
 #include "AddUserScreen.h"
 #include "DeleteUserScreen.h"
 #include "UpdateUserScreen.h"
+#include "FindUserScreen.h"
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
@@ -97,5 +98,5 @@ void ManageUsersScreen::_ShowUpdateUserScreen()
 
 void ManageUsersScreen::_ShowFindUserScreen()
 {
-    cout << "Find User Screen";
+    FindUserScreen::ShowFindUserScreen();
 }

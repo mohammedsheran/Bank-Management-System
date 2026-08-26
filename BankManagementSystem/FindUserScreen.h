@@ -4,4 +4,6 @@
 
 class FindUserScreen :public Screen
 {
+public:
+	static void ShowFindUserScreen();
 };
