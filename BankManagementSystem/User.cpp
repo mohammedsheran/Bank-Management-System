@@ -281,13 +281,21 @@ bool User::DeleteUser()
 		return {};
 	}
 
+	bool userFound{};
+
 	for (auto& user : vUsers)
 	{
 		if (user.Username == Username)
 		{
 			user._deletionFlag = true;
+			userFound = true;
 			break;
 		}
+	}
+
+	if (!userFound)
+	{
+		return {};
 	}
 
 	if (!_SaveUsers(vUsers))
