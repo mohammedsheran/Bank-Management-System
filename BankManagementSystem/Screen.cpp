@@ -2,6 +2,7 @@
 #include "Screen.h"
 #include "Libraries/Utils.h"
 #include "Global.h"
+#include "Libraries/Date.h"
 
 using namespace std;
 
@@ -14,7 +15,11 @@ void Screen::ShowScreenHeader(const string& title, const string& subTitle)
     {
         cout << Utils::Tab(6) << "   " << subTitle << '\n';
     }
-    cout << Utils::Divider(110) << "\n\n";
+    cout << Utils::Divider(110) << '\n';
+
+    cout << "Date: " << Date::DateToString(Date()) << '\n';
+    cout << "User: " << currentUser.Username << "\n\n";
+
 }
 void Screen::PauseScreen(const string& message)
 {
