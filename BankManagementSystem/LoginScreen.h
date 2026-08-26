@@ -5,7 +5,7 @@
 class LoginScreen : public Screen
 {
 private:
-	static void _Login();
+	static bool _Login();
 public:
-	static void ShowLoginScreen();
+	static bool ShowLoginScreen();
 };
