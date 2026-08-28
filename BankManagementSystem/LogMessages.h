@@ -13,6 +13,7 @@ namespace LogMessages
 	const std::string clientDeleted{ "Client Deleted Successfully" };
 	const std::string depositCompleted{ "Deposit Completed Successfully" };
 	const std::string withdrawalCompleted{ "Withdrawal Completed Successfully" };
+	const std::string transferCompleted{ "Transfer Completed Successfully" };
 	const std::string userAdded{ "User Added Successfully" };
 	const std::string userUpdated{ "User Updated Successfully" };
 	const std::string userDeleted{ "User Deleted Successfully" };
@@ -25,6 +26,7 @@ namespace LogMessages
 	const std::string insufficientBalance{ "Insufficient Balance" };
 	const std::string invalidDepositAmount{ "Invalid Deposit Amount" };
 	const std::string invalidWithdrawalAmount{ "Invalid Withdrawal Amount" };
+	const std::string transferFailed{ "Transfer Failed" };
 	const std::string accessDenied{ "Access Denied" };
 	const std::string operationCancelled{ "Operation Cancelled" };
 

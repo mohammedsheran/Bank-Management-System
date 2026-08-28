@@ -1,5 +1,5 @@
-Mohammed#:#Sheran#:#Mohammed@email.com#:#07709114193#:#A100#:#1000#:#2000.000000
-Ahmed#:#Ali#:#Ahmed@gmail.com#:#07801234567#:#A101#:#1234#:#2500.500000
+Mohammed#:#Sheran#:#Mohammed@email.com#:#07709114193#:#A100#:#1000#:#1850.000000
+Ahmed#:#Ali#:#Ahmed@gmail.com#:#07801234567#:#A101#:#1234#:#2650.500000
 Sara#:#Hassan#:#Sara@gmail.com#:#07712345678#:#A102#:#1234#:#980.750000
 Ali#:#Kareem#:#Ali@gmail.com#:#07505551234#:#A103#:#1234#:#12000.000000
 Zainab#:#Mahdi#:#Zainab@gmail.com#:#07909876543#:#A104#:#1234#:#350.250000

@@ -23,7 +23,7 @@ bool LoginScreen::_Login()
 
 		if (loginFailed)
 		{
-			Logger::Warning(LogMessages::loginFailed + " | " + username);
+			Logger::Warning(LogMessages::loginFailed + " | Username: " + username);
 
 			loginAttempts++;
 
@@ -41,7 +41,7 @@ bool LoginScreen::_Login()
 
 	} while (loginFailed);
 
-	Logger::Info(LogMessages::loginSuccessful + " | " + currentUser.Username);
+	Logger::Info(LogMessages::loginSuccessful + " | Username: " + currentUser.Username);
 
 	MainScreen::ShowMainMenuScreen();
 	return true;

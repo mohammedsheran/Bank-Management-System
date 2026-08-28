@@ -52,5 +52,4 @@ void DeleteClientScreen::ShowDeleteClientScreen()
 
     cout << "\nClient deleted successfully.\n";
     UIUtils::PrintClientCard(client);
-    Logger::Info(LogMessages::clientDeleted   + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
 }

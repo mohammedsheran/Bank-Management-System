@@ -45,5 +45,4 @@ void AddUserScreen::ShowAddUserScreen()
 
     cout << "\nUser added successfully.\n";
     UIUtils::PrintUserCard(user);
-	Logger::Info(LogMessages::userAdded + " | Username: " + currentUser.Username + " | Target User: " + username);
 }

@@ -5,6 +5,7 @@
 #include "BalanceListScreen.h"
 #include "DepositScreen.h"
 #include "WithdrawScreen.h"
+#include "TransferScreen.h"
 #include "Global.h"
 #include "Logger.h"
 #include "LogMessages.h"
@@ -25,7 +26,9 @@ void TransactionsScreen::ShowTransactionsMenuScreen()
         << Utils::Tab(2) << "[3] Withdraw.\n";
 
     cout << Utils::Tab(4) << "[2] Deposit."
-        << Utils::Tab(3) << "[4] Main Menu.\n\n";
+        << Utils::Tab(3) << "[5] Main Menu.\n";
+
+	cout << Utils::Tab(4) << "[4] Transfer.\n\n";
 
     cout << Utils::Divider(110) << '\n';
 
@@ -34,7 +37,7 @@ void TransactionsScreen::ShowTransactionsMenuScreen()
 
 TransactionsScreen::TransactionsMenuOptions TransactionsScreen::_ReadTransactionsMenuOptions()
 {
-    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-4]: ", static_cast<short>(1), static_cast<short>(4)) };
+    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-5]: ", static_cast<short>(1), static_cast<short>(5)) };
     return static_cast<TransactionsMenuOptions>(option);
 }
 
@@ -64,6 +67,11 @@ void TransactionsScreen::_HandleTransactionsMenuOption(TransactionsMenuOptions o
 		_ShowWithdrawScreen();
 		break;
 
+	case TransactionsScreen::TransactionsMenuOptions::Transfer:
+		Screen::ClearScreen();
+		_ShowTransferScreen();
+		break;
+
 	case TransactionsScreen::TransactionsMenuOptions::MainMenu:
 		return;
 	}
@@ -84,4 +92,9 @@ void TransactionsScreen::_ShowDepositScreen()
 void TransactionsScreen::_ShowWithdrawScreen()
 {
 	WithdrawScreen::ShowWithdrawScreen();
+}
+
+void TransactionsScreen::_ShowTransferScreen()
+{
+	TransferScreen::ShowTransferScreen();
 }

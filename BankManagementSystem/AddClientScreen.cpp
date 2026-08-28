@@ -52,5 +52,4 @@ void AddClientScreen::ShowAddClientScreen()
 
     cout << "\nClient Added successfully.\n";
     UIUtils::PrintClientCard(client);
-    Logger::Info(LogMessages::clientAdded + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
 }

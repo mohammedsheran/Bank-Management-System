@@ -239,7 +239,7 @@ Client::OperationResult Client::Execute()
 			OperationResult::Failed;
 
 	case Client::Mode::Add:
-		if (!_AddUser())
+		if (!_AddClient())
 		{
 			return OperationResult::Failed;
 		}
@@ -256,7 +256,7 @@ Client Client::GetNewClientForAdd(const string& accountNumber)
 	return Client(Mode::Add, accountNumber);
 }
 
-bool Client::_AddUser()
+bool Client::_AddClient()
 {
 	ofstream file{ "Clients.txt", ios::app };
 
@@ -267,6 +267,8 @@ bool Client::_AddUser()
 	}
 
 	file << _ConvertClientObjectToLine(*this) << '\n';
+
+	Logger::Info(LogMessages::clientAdded + " | Username: " + currentUser.Username + " | Account: " + _accountNumber);
 
 	file.close();
 
@@ -315,6 +317,9 @@ bool Client::DeleteClient()
 	}
 
 	_Reset();
+
+	Logger::Info(LogMessages::clientDeleted + " | Username: " + currentUser.Username + " | Account: " + _accountNumber);
+
 	return true;
 }
 
@@ -336,6 +341,12 @@ bool Client::Deposit(const double& depositAmount)
 
 	_accountBalance += depositAmount;
 	Execute();
+
+	Logger::Info(LogMessages::depositCompleted
+		+ " | Username: " + currentUser.Username
+		+ " | Account: " + _accountNumber
+		+ " | Amount: " + to_string(depositAmount)
+		+ " | New Balance: " + to_string(_accountBalance));
 
 	return true;
 }
@@ -363,6 +374,43 @@ bool Client::Withdraw(const double& withdrawAmount)
 
 	_accountBalance -= withdrawAmount;
 	Execute();
+
+	Logger::Info(LogMessages::withdrawalCompleted
+		+ " | Username: " + currentUser.Username
+		+ " | Account: " + _accountNumber
+		+ " | Amount: " + to_string(withdrawAmount)
+		+ " | New Balance: " + to_string(_accountBalance));
+
+	return true;
+}
+
+bool Client::Transfer(const double& transferAmount, Client& destinationClient)
+{
+	if (!Withdraw(transferAmount))
+	{
+		Logger::Warning(LogMessages::transferFailed
+			+ " | Username: " + currentUser.Username
+			+ " | Source Account: " + _accountNumber
+			+ " | Destination Account: " + destinationClient.AccountNumber
+			+ " |  Amount: " + to_string(transferAmount));
+		return {};
+	}
+
+	if (!destinationClient.Deposit(transferAmount))
+	{
+		Logger::Warning(LogMessages::transferFailed
+			+ " | Username: " + currentUser.Username
+			+ " | Source Account: " + _accountNumber
+			+ " | Destination Account: " + destinationClient.AccountNumber
+			+ " |  Amount: " + to_string(transferAmount));
+		return {};
+	}
+
+	Logger::Info(LogMessages::transferCompleted
+		+ " | Username: " + currentUser.Username
+		+ " | Source Account: " + _accountNumber
+		+ " | Destination Account: " + destinationClient.AccountNumber
+		+ " | Amount: " + to_string(transferAmount));
 
 	return true;
 }

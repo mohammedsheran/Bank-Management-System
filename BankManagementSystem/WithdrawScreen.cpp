@@ -47,9 +47,4 @@ void WithdrawScreen::ShowWithdrawScreen()
 	}
 
 	cout << "\nDone successfully, new balance is: " << client.AccountBalance << endl;
-	Logger::Info(LogMessages::withdrawalCompleted
-		+ " | Username: " + currentUser.Username
-		+ " | Account: " + accountNumber
-		+ " | Amount: " + to_string(withdrawAmount)
-		+ " | New Balance: " + to_string(client.AccountBalance));
 }

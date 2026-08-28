@@ -45,9 +45,4 @@ void DepositScreen::ShowDepositScreen()
 	}
 
 	cout << "\nDone successfully, new balance is: " << client.AccountBalance << endl;
-	Logger::Info(LogMessages::depositCompleted
-		+ " | Username: " + currentUser.Username
-		+ " | Account: " + accountNumber
-		+ " | Amount: " + to_string(depositAmount)
-		+ " | New Balance: " + to_string(client.AccountBalance));
 }
