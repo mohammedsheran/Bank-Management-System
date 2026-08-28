@@ -5,16 +5,20 @@
 #include "BalanceListScreen.h"
 #include "DepositScreen.h"
 #include "WithdrawScreen.h"
-
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void TransactionsScreen::ShowTransactionsMenuScreen()
 {
+	Screen::ClearScreen();
+
 	if (!Screen::CheckAccessRight(User::UserPermissions::Transactions))
 	{
+		Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Transactions");
 		return;
 	}
 
-    Screen::ClearScreen();
 	Screen::ShowScreenHeader("Transactions Screen");
 
     cout << Utils::Tab(4) << "[1] Balance List."

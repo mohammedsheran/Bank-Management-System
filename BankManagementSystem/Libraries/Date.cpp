@@ -873,6 +873,23 @@ Date Date::GetDate()
     return Date(day, month, year);
 }
 
+string Date::GetDateTime()
+{
+    time_t now{ time(nullptr) };
+    tm* dateTime{ localtime(&now) };
+
+    char dateTimeString[20]{};
+
+    strftime(
+        dateTimeString,
+        sizeof(dateTimeString),
+        "%Y-%m-%d %H:%M:%S",
+        dateTime
+    );
+
+    return dateTimeString;
+}
+
 bool Date::IsEndOfWeek(const Date& date)
 {
     return (GetDayOfWeek(date) == 6);
@@ -1054,9 +1071,23 @@ string Date::FormatDate(const Date& date, const string& format)
 {
     string formattedDate{ format };
 
-    formattedDate = StringUtils::Replace(formattedDate, "dd", to_string(date.Day));
-    formattedDate = StringUtils::Replace(formattedDate, "mm", to_string(date.Month));
-    formattedDate = StringUtils::Replace(formattedDate, "yyyy", to_string(date.Year));
+    string day{ to_string(date.Day) };
+    string month{ to_string(date.Month) };
+    string year{ to_string(date.Year) };
+
+    if (date.Day < 10)
+    {
+        day + "0" + day;
+    }
+
+    if (date.Month < 10)
+    {
+        month + "0" + month;
+    }
+
+    formattedDate = StringUtils::Replace(formattedDate, "dd", day);
+    formattedDate = StringUtils::Replace(formattedDate, "mm", month);
+    formattedDate = StringUtils::Replace(formattedDate, "yyyy", year);
 
     return formattedDate;
 }

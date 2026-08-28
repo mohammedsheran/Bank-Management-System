@@ -5,6 +5,9 @@
 
 #include "User.h"
 #include "Libraries/StringUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 User::User(const Mode& mode) : Person(), _mode(mode) {}
 User::User(const Mode& mode, const string& username) : Person(), _mode(mode), _username(RequireField(username)) {}
@@ -89,6 +92,7 @@ vector <User> User::_LoadUsers()
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenUsersFile + " | Operation: Read");
 		cout << "Failed to open file: Users.txt\n";
 		return {};
 	}
@@ -115,6 +119,7 @@ bool User::_SaveUsers(const vector <User>& vUsers)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenUsersFile + " | Username: " + currentUser.Username + " | Operation: Save");
 		cout << "Failed to open file: Users.txt\n";
 		return {};
 	}
@@ -138,6 +143,7 @@ User User::Find(const string& username)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenUsersFile + " | Operation: Read");
 		cout << "Failed to open file: Users.txt\n";
 		return User(Mode::Empty);
 	}
@@ -165,6 +171,7 @@ User User::Find(const string& username, const string& Password)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenUsersFile + " | Operation: Read");
 		cout << "Failed to open file: Users.txt\n";
 		return User(Mode::Empty);
 	}

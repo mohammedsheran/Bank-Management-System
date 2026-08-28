@@ -5,6 +5,9 @@
 #include "Libraries/InputUtils.h"
 #include "Client.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void WithdrawScreen::ShowWithdrawScreen()
 {
@@ -29,6 +32,7 @@ void WithdrawScreen::ShowWithdrawScreen()
 	if (tolower(answer) != 'y')
 	{
 		cout << "\nOperation cancelled.\n";
+		Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Withdraw");
 		return;
 	}
 
@@ -43,4 +47,9 @@ void WithdrawScreen::ShowWithdrawScreen()
 	}
 
 	cout << "\nDone successfully, new balance is: " << client.AccountBalance << endl;
+	Logger::Info(LogMessages::withdrawalCompleted
+		+ " | Username: " + currentUser.Username
+		+ " | Account: " + accountNumber
+		+ " | Amount: " + to_string(withdrawAmount)
+		+ " | New Balance: " + to_string(client.AccountBalance));
 }

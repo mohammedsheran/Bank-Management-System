@@ -2,6 +2,9 @@
 #include "Client.h"
 #include "Libraries/StringUtils.h"
 #include "Libraries/Utils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 #include <string>
 #include <fstream>
@@ -101,6 +104,7 @@ Client Client::Find(const string& accountNumber)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenClientsFile +" | Operation: Read");
 		cout << "Failed to open file: Clients.txt\n";
 		return Client(Mode::Empty);
 	}
@@ -128,6 +132,7 @@ Client Client::Find(const string& accountNumber, const string& pinCode)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenClientsFile + " | Operation: Read");
 		cout << "Failed to open file: Clients.txt\n";
 		return Client(Mode::Empty);
 	}
@@ -165,6 +170,7 @@ vector <Client> Client::_LoadClients()
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenClientsFile + " | Operation: Read");
 		cout << "Failed to open file: Clients.txt\n";
 		return {};
 	}
@@ -186,6 +192,7 @@ bool Client::_SaveClients(const vector <Client>& vClients)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenClientsFile + " | Username: " + currentUser.Username + " | Operation: Save");
 		cout << "Failed to open file: Clients.txt\n";
 		return {};
 	}
@@ -320,6 +327,10 @@ bool Client::Deposit(const double& depositAmount)
 {
 	if (depositAmount <= 0)
 	{
+		Logger::Warning(LogMessages::invalidDepositAmount 
+			+ " | Username: " + currentUser.Username 
+			+ " | Account: " + _accountNumber 
+			+ " | Amount: " + to_string(depositAmount));
 		return {};
 	}
 
@@ -331,8 +342,22 @@ bool Client::Deposit(const double& depositAmount)
 
 bool Client::Withdraw(const double& withdrawAmount)
 {
-	if (withdrawAmount <= 0 || withdrawAmount > _accountBalance)
+	if (withdrawAmount <= 0)
 	{
+		Logger::Warning(LogMessages::invalidWithdrawalAmount
+			+ " | Username: " + currentUser.Username
+			+ " | Account: " + _accountNumber
+			+ " | Amount: " + to_string(withdrawAmount));
+		return {};
+	}
+
+	if (withdrawAmount > _accountBalance)
+	{
+		Logger::Warning(LogMessages::insufficientBalance
+			+ " | Username: " + currentUser.Username
+			+ " | Account: " + _accountNumber
+			+ " | Requested Amount: " + to_string(withdrawAmount)
+			+ " | Current Balance: " + to_string(_accountBalance));
 		return {};
 	}
 

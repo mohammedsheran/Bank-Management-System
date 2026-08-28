@@ -197,6 +197,8 @@ public:
 
 	static Date GetDate();
 
+	static string GetDateTime();
+
 	static bool IsEndOfWeek(const Date& date);
 	bool IsEndOfWeek() const;
 
