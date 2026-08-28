@@ -40,7 +40,7 @@ void UpdateUserScreen::_UpdateUserRecord(User& user)
     inputValue = InputUtils::ReadString("Enter password       : ");
     if (!inputValue.empty())
     {
-        user.PhoneNumber = inputValue;
+        user.Password = inputValue;
     }
 
     answer = InputUtils::ReadChar("Change permissions?   (y/N): ");

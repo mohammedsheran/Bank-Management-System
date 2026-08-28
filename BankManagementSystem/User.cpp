@@ -5,6 +5,7 @@
 
 #include "User.h"
 #include "Libraries/StringUtils.h"
+#include "Libraries/Utils.h"
 #include "Global.h"
 #include "Logger.h"
 #include "LogMessages.h"
@@ -62,7 +63,7 @@ User User::_ConvertLineToUserObject(const string& line, const string& delimiter)
 		return User(Mode::Empty);
 	}
 
-	return User(Mode::Update, vString[0], vString[1], vString[2], vString[3], vString[4], vString[5], stoi(vString[6]));
+	return User(Mode::Update, vString[0], vString[1], vString[2], vString[3], vString[4], Utils::Decrypt(vString[5]), stoi(vString[6]));
 }
 string User::_ConvertUserObjectToLine(const User& user, const string& separator)
 {
@@ -78,7 +79,7 @@ string User::_ConvertUserObjectToLine(const User& user, const string& separator)
 	line += user.Email + separator;
 	line += user.PhoneNumber + separator;
 	line += user._username + separator;
-	line += user._password + separator;
+	line += Utils::Encrypt(user._password) + separator;
 	line += to_string(user._permissions);
 
 	return line;
@@ -314,7 +315,7 @@ bool User::DeleteUser()
 
 	_Reset();
 
-	Logger::Info(LogMessages::userDeleted + " | Username: " + currentUser.Username + " | Target User: " + username);
+	Logger::Info(LogMessages::userDeleted + " | Username: " + currentUser.Username + " | Target User: " + _username);
 
 	return true;
 }

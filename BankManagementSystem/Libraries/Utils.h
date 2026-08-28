@@ -51,9 +51,9 @@ public:
 
     static string Divider(const short& length);
 
-    static string Encrypt(string message, const short& encryptionKey);
+    static string Encrypt(string message, const short& encryptionKey = 3);
 
-    static string Decrypt(string message, const short& decryptionKey);
+    static string Decrypt(string message, const short& decryptionKey = 3);
 
     static string NumberToString(const int& number);
     
