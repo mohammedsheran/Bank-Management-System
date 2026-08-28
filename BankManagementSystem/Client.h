@@ -29,7 +29,7 @@ private:
 
 	bool _UpdateClient();
 	
-	bool _AddUser();
+	bool _AddClient();
 
 	void _Reset();
 
@@ -79,4 +79,6 @@ public:
 	bool Deposit(const double& depositAmount);
 
 	bool Withdraw(const double& withdrawAmount);
+
+	bool Transfer(const double& transferAmount, Client& destinationClient);
 };

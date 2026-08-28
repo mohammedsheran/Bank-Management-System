@@ -10,6 +10,7 @@ private:
 		BalanceList = 1,
 		Deposit,
 		Withdraw,
+		Transfer,
 		MainMenu
 	};
 
@@ -22,6 +23,7 @@ private:
 	static void _ShowDepositScreen();
 
 	static void _ShowWithdrawScreen();
+	static void _ShowTransferScreen();
 
 	static void _HandleTransactionsMenuOption(TransactionsMenuOptions option);
 

@@ -53,6 +53,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
     cout << "\nClient updated successfully.\n";
     UIUtils::PrintClientCard(client);
     Logger::Info(LogMessages::clientUpdated + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
+
 }
 
 void UpdateClientScreen::_UpdateClientRecord(Client& client)

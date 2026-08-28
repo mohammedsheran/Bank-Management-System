@@ -238,6 +238,8 @@ bool User::_AddUser() const
 
 	file << _ConvertUserObjectToLine(*this) << '\n';
 
+	Logger::Info(LogMessages::userAdded + " | Username: " + currentUser.Username + " | Target User: " + _username);
+
 	file.close();
 
 	return true;
@@ -311,6 +313,9 @@ bool User::DeleteUser()
 	}
 
 	_Reset();
+
+	Logger::Info(LogMessages::userDeleted + " | Username: " + currentUser.Username + " | Target User: " + username);
+
 	return true;
 }
 

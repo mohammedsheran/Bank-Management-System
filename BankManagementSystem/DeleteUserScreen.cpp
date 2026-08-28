@@ -49,5 +49,4 @@ void DeleteUserScreen::ShowDeleteUserScreen()
 
     cout << "\nUser deleted successfully.\n";
     UIUtils::PrintUserCard(user);
-    Logger::Info(LogMessages::userDeleted + " | Username: " + currentUser.Username + " | Target User: " + username);
 }
