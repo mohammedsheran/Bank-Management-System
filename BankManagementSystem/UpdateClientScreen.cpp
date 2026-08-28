@@ -4,11 +4,15 @@
 #include "UpdateClientScreen.h"
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void UpdateClientScreen::ShowUpdateClientScreen()
 {
     if (!Screen::CheckAccessRight(User::UserPermissions::UpdateClient))
     {
+        Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Update Client");
         return;
     }
 
@@ -18,6 +22,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
 
     while (!Client::IsClientExists(accountNumber))
     {
+        Logger::Warning(LogMessages::clientNotFound + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
         cout << "\nClient \'" << accountNumber << "\' not found.\n";
         accountNumber = InputUtils::ReadString("Enter another account number: ");
     }
@@ -31,6 +36,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
     if (tolower(answer) != 'y')
     {
         cout << "\nOperation cancelled.\n";
+        Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Update Client");
         return;
     }
 
@@ -46,7 +52,7 @@ void UpdateClientScreen::ShowUpdateClientScreen()
 
     cout << "\nClient updated successfully.\n";
     UIUtils::PrintClientCard(client);
-
+    Logger::Info(LogMessages::clientUpdated + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
 }
 
 void UpdateClientScreen::_UpdateClientRecord(Client& client)

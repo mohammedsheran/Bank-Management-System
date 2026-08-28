@@ -2,6 +2,9 @@
 #include "AddUserScreen.h"
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void AddUserScreen::_ReadUser(User& user)
 {
@@ -42,4 +45,5 @@ void AddUserScreen::ShowAddUserScreen()
 
     cout << "\nUser added successfully.\n";
     UIUtils::PrintUserCard(user);
+	Logger::Info(LogMessages::userAdded + " | Username: " + currentUser.Username + " | Target User: " + username);
 }

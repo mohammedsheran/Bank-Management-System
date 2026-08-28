@@ -3,6 +3,9 @@
 #include "Libraries/InputUtils.h"
 #include "User.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void FindUserScreen::ShowFindUserScreen()
 {
@@ -12,6 +15,7 @@ void FindUserScreen::ShowFindUserScreen()
 
 	while (!User::IsUserExists(username))
 	{
+		Logger::Warning(LogMessages::userNotFound + " | Username: " + currentUser.Username + " | Target User: " + username);
 		cout << "\nUser \'" << username << "\' not found.\n";
 		username = InputUtils::ReadString("Enter another username: ");
 	}

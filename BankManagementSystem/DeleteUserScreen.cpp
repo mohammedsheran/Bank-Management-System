@@ -4,6 +4,9 @@
 #include "Libraries/StringUtils.h"
 #include "User.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void DeleteUserScreen::ShowDeleteUserScreen()
 {
@@ -19,6 +22,7 @@ void DeleteUserScreen::ShowDeleteUserScreen()
 
     while (!User::IsUserExists(username))
     {
+        Logger::Warning(LogMessages::userNotFound + " | Username: " + currentUser.Username + " | Target User: " + username);
         cout << "\nUser \'" << username << "\' not found.\n";
         username = InputUtils::ReadString("Enter another username: ");
     }
@@ -32,6 +36,7 @@ void DeleteUserScreen::ShowDeleteUserScreen()
     if (tolower(answer) != 'y')
     {
         cout << "\nOperation cancelled.\n";
+        Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Delete User");
         return;
     }
 
@@ -44,4 +49,5 @@ void DeleteUserScreen::ShowDeleteUserScreen()
 
     cout << "\nUser deleted successfully.\n";
     UIUtils::PrintUserCard(user);
+    Logger::Info(LogMessages::userDeleted + " | Username: " + currentUser.Username + " | Target User: " + username);
 }

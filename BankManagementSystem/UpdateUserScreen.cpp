@@ -2,6 +2,9 @@
 #include "UpdateUserScreen.h"
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void UpdateUserScreen::_UpdateUserRecord(User& user)
 {
@@ -55,6 +58,7 @@ void UpdateUserScreen::ShowUpdateUserScreen()
 
     while (!User::IsUserExists(username))
     {
+        Logger::Warning(LogMessages::userNotFound + " | Username: " + currentUser.Username + " | Target User: " + username);
         cout << "\nUser \'" << username << "\' not found.\n";
         username = InputUtils::ReadString("Enter another username: ");
     }
@@ -78,9 +82,11 @@ void UpdateUserScreen::ShowUpdateUserScreen()
     if (opResult == User::OperationResult::Failed)
     {
         cout << "\nFailed to update user.\n";
+        Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Update User");
         return;
     }
 
     cout << "\nUser updated successfully.\n";
     UIUtils::PrintUserCard(user);
+    Logger::Info(LogMessages::userUpdated + " | Username: " + currentUser.Username + " | Target User: " + username);
 }

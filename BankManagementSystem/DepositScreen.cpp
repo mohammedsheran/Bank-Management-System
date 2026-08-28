@@ -5,6 +5,9 @@
 #include "Libraries/InputUtils.h"
 #include "Client.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 using namespace std;
 
@@ -31,6 +34,7 @@ void DepositScreen::ShowDepositScreen()
 	if (tolower(answer) != 'y')
 	{
 		cout << "\nOperation cancelled.\n";
+		Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Deposit");
 		return;
 	}
 
@@ -41,4 +45,9 @@ void DepositScreen::ShowDepositScreen()
 	}
 
 	cout << "\nDone successfully, new balance is: " << client.AccountBalance << endl;
+	Logger::Info(LogMessages::depositCompleted
+		+ " | Username: " + currentUser.Username
+		+ " | Account: " + accountNumber
+		+ " | Amount: " + to_string(depositAmount)
+		+ " | New Balance: " + to_string(client.AccountBalance));
 }

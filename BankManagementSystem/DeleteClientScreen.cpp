@@ -5,6 +5,9 @@
 #include "Libraries/InputUtils.h"
 #include "Client.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 using namespace std;
 
@@ -12,6 +15,7 @@ void DeleteClientScreen::ShowDeleteClientScreen()
 {
     if (!Screen::CheckAccessRight(User::UserPermissions::DeleteClient))
     {
+        Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Delete Client");
         return;
     }
 
@@ -21,6 +25,7 @@ void DeleteClientScreen::ShowDeleteClientScreen()
 
     while (!Client::IsClientExists(accountNumber))
     {
+        Logger::Warning(LogMessages::clientNotFound + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
         cout << "\nClient \'" << accountNumber << "\' not found.\n";
         accountNumber = InputUtils::ReadString("Enter another account number: ");
     }
@@ -34,6 +39,7 @@ void DeleteClientScreen::ShowDeleteClientScreen()
     if (tolower(answer) != 'y')
     {
         cout << "\nOperation cancelled.\n";
+        Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Delete Client");
         return;
     }
 
@@ -46,4 +52,5 @@ void DeleteClientScreen::ShowDeleteClientScreen()
 
     cout << "\nClient deleted successfully.\n";
     UIUtils::PrintClientCard(client);
+    Logger::Info(LogMessages::clientDeleted   + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
 }

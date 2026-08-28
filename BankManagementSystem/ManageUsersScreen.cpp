@@ -7,15 +7,20 @@
 #include "DeleteUserScreen.h"
 #include "UpdateUserScreen.h"
 #include "FindUserScreen.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void ManageUsersScreen::ShowManageUsersMenu()
 {
+    Screen::ClearScreen();
+
     if (!Screen::CheckAccessRight(User::UserPermissions::ManageUsers))
     {
+        Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Manage Users");
         return;
     }
 
-    Screen::ClearScreen();
 	Screen::ShowScreenHeader("Manage Users Screen");
 
     cout << Utils::Tab(4) << "[1] Show User List."

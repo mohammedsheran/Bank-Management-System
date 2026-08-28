@@ -10,6 +10,8 @@
 #include "TransactionsScreen.h"
 #include "ManageUsersScreen.h"
 #include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void MainScreen::ShowMainMenuScreen()
 {
@@ -122,5 +124,6 @@ void MainScreen::_ShowMangeUsersMenu()
 
 void MainScreen::_Logout()
 {
+    Logger::Info(LogMessages::loggedOut + " | " + currentUser.Username);
     currentUser = User::Find("", "");
 }

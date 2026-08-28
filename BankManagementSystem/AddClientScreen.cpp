@@ -3,6 +3,9 @@
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void AddClientScreen::_ReadClient(Client& client)
 {
@@ -20,6 +23,7 @@ void AddClientScreen::ShowAddClientScreen()
 {
     if (!Screen::CheckAccessRight(User::UserPermissions::AddClient))
     {
+        Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Add Client");
         return;
     }
 
@@ -29,6 +33,7 @@ void AddClientScreen::ShowAddClientScreen()
 
     while (Client::IsClientExists(accountNumber))
     {
+        Logger::Warning(LogMessages::clientNotFound + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
         cout << "\nClient \'" << accountNumber << "\' already exists.\n";
         accountNumber = InputUtils::ReadString("Enter another account number: ");
     }
@@ -47,4 +52,5 @@ void AddClientScreen::ShowAddClientScreen()
 
     cout << "\nClient Added successfully.\n";
     UIUtils::PrintClientCard(client);
+    Logger::Info(LogMessages::clientAdded + " | Username: " + currentUser.Username + " | Account: " + accountNumber);
 }
