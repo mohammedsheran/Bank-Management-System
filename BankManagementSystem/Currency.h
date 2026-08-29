@@ -26,7 +26,9 @@ private:
 	static std::string _ConvertCurrencyObjectToLine(const Currency& currency, const std::string& separator = "#:#");
 
 	static std::vector <Currency> _LoadCurrencies();
-	static bool _SaveScurrencies(const std::vector <Currency>& vCurrencies);
+	static bool _SaveCurrencies(const std::vector <Currency>& vCurrencies);
+
+	bool _UpdateCurrency();
 
 public:
 	Currency(const Mode& mode);
@@ -48,5 +50,7 @@ public:
 
 	static Currency FindByCountry(std::string country);
 	static Currency FindByCode(std::string code);
+
+	static bool IsCurrecnyExists(const std::string& code);
 
 };

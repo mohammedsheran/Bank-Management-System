@@ -48,6 +48,7 @@ std::string Currency::GetName() const
 void Currency::UpdateRate(const float& rate)
 {
 	_rate = _ValidateRate(rate);
+	_UpdateCurrency();
 }
 
 float Currency::GetRate() const
@@ -113,7 +114,7 @@ std::vector <Currency> Currency::_LoadCurrencies()
 	return vCurrencies;
 }
 
-bool Currency::_SaveScurrencies(const std::vector <Currency>& vCurrencies)
+bool Currency::_SaveCurrencies(const std::vector <Currency>& vCurrencies)
 {
 	if (vCurrencies.empty())
 	{
@@ -195,4 +196,26 @@ Currency Currency::FindByCode(std::string code)
 	file.close();
 
 	return Currency(Mode::Empty);
+}
+
+bool Currency::IsCurrecnyExists(const std::string& code)
+{
+	Currency currency{ Currency::FindByCode(code) };
+	return !currency.IsEmpty();
+}
+
+bool Currency::_UpdateCurrency()
+{
+	std::vector <Currency> vCurrencies{ _LoadCurrencies() };
+
+	for (auto& currency : vCurrencies)
+	{
+		if (currency.Code == Code)
+		{
+			currency = *this;
+			break;
+		}
+	}
+
+	return _SaveCurrencies(vCurrencies);
 }
