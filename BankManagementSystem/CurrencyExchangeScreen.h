@@ -5,7 +5,7 @@
 class CurrencyExchangeScreen : public Screen
 {
 private:
-	enum class CurrencyMenuOptions
+	enum class CurrencyExchangeMenuOptions
 	{
 		CurrencyList = 1,
 		FindCurrency,
@@ -14,11 +14,11 @@ private:
 		MainMenu
 	};
 
-	static CurrencyMenuOptions _ReadCurrencyExchangeMenuOption();
+	static CurrencyExchangeMenuOptions _ReadCurrencyExchangeMenuOption();
 
 	static void _ReturnToCurrencyExchangeMenu();
 
-	static void _HandleCurrencyExchangeMenuOption(CurrencyMenuOptions option);
+	static void _HandleCurrencyExchangeMenuOption(CurrencyExchangeMenuOptions option);
 
 	static void _ShowCurrencyListScreen();
 	static void _ShowFindCurrencyScreen();
