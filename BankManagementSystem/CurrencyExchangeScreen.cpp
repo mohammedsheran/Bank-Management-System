@@ -2,6 +2,7 @@
 #include "CurrencyExchangeScreen.h"
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
+#include "CurrencyListScreen.h"
 
 void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 {
@@ -28,10 +29,10 @@ void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 	_HandleCurrencyExchangeMenuOption(_ReadCurrencyExchangeMenuOption());
 }
 
-CurrencyExchangeScreen::CurrencyMenuOptions CurrencyExchangeScreen::_ReadCurrencyExchangeMenuOption()
+CurrencyExchangeScreen::CurrencyExchangeMenuOptions CurrencyExchangeScreen::_ReadCurrencyExchangeMenuOption()
 {
 	short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-5]: ", static_cast<short>(1), static_cast<short>(5)) };
-	return static_cast<CurrencyMenuOptions>(option);
+	return static_cast<CurrencyExchangeMenuOptions>(option);
 }
 
 void CurrencyExchangeScreen::_ReturnToCurrencyExchangeMenu()
@@ -41,31 +42,31 @@ void CurrencyExchangeScreen::_ReturnToCurrencyExchangeMenu()
 	ShowCurrencyExchangeMenuScreen();
 }
 
-void CurrencyExchangeScreen::_HandleCurrencyExchangeMenuOption(CurrencyMenuOptions option)
+void CurrencyExchangeScreen::_HandleCurrencyExchangeMenuOption(CurrencyExchangeMenuOptions option)
 {
 	switch (option)
 	{
-	case CurrencyExchangeScreen::CurrencyMenuOptions::CurrencyList:
+	case CurrencyExchangeScreen::CurrencyExchangeMenuOptions::CurrencyList:
 		Screen::ClearScreen();
 		_ShowCurrencyListScreen();
 		break;
 
-	case CurrencyExchangeScreen::CurrencyMenuOptions::FindCurrency:
+	case CurrencyExchangeScreen::CurrencyExchangeMenuOptions::FindCurrency:
 		Screen::ClearScreen();
 		_ShowFindCurrencyScreen();
 		break;
 	
-	case CurrencyExchangeScreen::CurrencyMenuOptions::UpdateRate:
+	case CurrencyExchangeScreen::CurrencyExchangeMenuOptions::UpdateRate:
 		Screen::ClearScreen();
 		_ShowUpdateRateScreen();
 		break;
 
-	case CurrencyExchangeScreen::CurrencyMenuOptions::CurrencyCalculator:
+	case CurrencyExchangeScreen::CurrencyExchangeMenuOptions::CurrencyCalculator:
 		Screen::ClearScreen();
 		_ShowCurrencyCalculatorScreen();
 		break;
 
-	case CurrencyExchangeScreen::CurrencyMenuOptions::MainMenu:
+	case CurrencyExchangeScreen::CurrencyExchangeMenuOptions::MainMenu:
 		return;
 	}
 
@@ -74,7 +75,7 @@ void CurrencyExchangeScreen::_HandleCurrencyExchangeMenuOption(CurrencyMenuOptio
 
 void CurrencyExchangeScreen::_ShowCurrencyListScreen()
 {
-	std::cout << "Currency List Scrren";
+	CurrencyListScreen::ShowCurrencyListScreen();
 }
 
 void CurrencyExchangeScreen::_ShowFindCurrencyScreen()

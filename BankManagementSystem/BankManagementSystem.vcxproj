@@ -147,6 +147,7 @@
     <ClCompile Include="ClientListScreen.cpp" />
     <ClCompile Include="Currency.cpp" />
     <ClCompile Include="CurrencyExchangeScreen.cpp" />
+    <ClCompile Include="CurrencyListScreen.cpp" />
     <ClCompile Include="DeleteClientScreen.cpp" />
     <ClCompile Include="DeleteUserScreen.cpp" />
     <ClCompile Include="DepositScreen.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="ClientListScreen.h" />
     <ClInclude Include="Currency.h" />
     <ClInclude Include="CurrencyExchangeScreen.h" />
+    <ClInclude Include="CurrencyListScreen.h" />
     <ClInclude Include="DeleteClientScreen.h" />
     <ClInclude Include="DeleteUserScreen.h" />
     <ClInclude Include="DepositScreen.h" />
