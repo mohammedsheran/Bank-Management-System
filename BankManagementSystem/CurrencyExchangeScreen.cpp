@@ -6,6 +6,9 @@
 #include "FindCurrencyScreen.h"
 #include "UpdateCurrencyRateScreen.h"
 #include "CurrencyCalculatorScreen.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 {
@@ -13,7 +16,7 @@ void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 
 	if (!Screen::CheckAccessRight(User::UserPermissions::Transactions))
 	{
-		//Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Transactions");
+		Logger::Warning(LogMessages::accessDenied + " | Username: " + currentUser.Username + " | Operation: Currency Exchange");
 		return;
 	}
 
