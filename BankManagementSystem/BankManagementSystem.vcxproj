@@ -169,6 +169,7 @@
     <ClCompile Include="TransferScreen.cpp" />
     <ClCompile Include="UIUtils.cpp" />
     <ClCompile Include="UpdateClientScreen.cpp" />
+    <ClCompile Include="UpdateCurrencyRateScreen.cpp" />
     <ClCompile Include="UpdateUserScreen.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserListScreen.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="TransferScreen.h" />
     <ClInclude Include="UIUtils.h" />
     <ClInclude Include="UpdateClientScreen.h" />
+    <ClInclude Include="UpdateCurrencyRateScreen.h" />
     <ClInclude Include="UpdateUserScreen.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserListScreen.h" />
