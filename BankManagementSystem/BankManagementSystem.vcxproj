@@ -145,6 +145,7 @@
     <ClCompile Include="BankManagementSystem.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientListScreen.cpp" />
+    <ClCompile Include="Currency.cpp" />
     <ClCompile Include="DeleteClientScreen.cpp" />
     <ClCompile Include="DeleteUserScreen.cpp" />
     <ClCompile Include="DepositScreen.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="BalanceListScreen.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientListScreen.h" />
+    <ClInclude Include="Currency.h" />
     <ClInclude Include="DeleteClientScreen.h" />
     <ClInclude Include="DeleteUserScreen.h" />
     <ClInclude Include="DepositScreen.h" />
