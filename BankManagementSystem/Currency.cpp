@@ -136,3 +136,63 @@ bool Currency::_SaveScurrencies(const std::vector <Currency>& vCurrencies)
 	file.close();
 	return true;
 }
+
+Currency Currency::FindByCountry(std::string country)
+{
+	std::ifstream file{ "Currencies.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Currencies.txt\n";
+		return Currency(Mode::Empty);
+	}
+
+	country = StringUtils::ToUpper(country);
+
+	std::string line{};
+
+	while (getline(file, line))
+	{
+		Currency currency{ _ConvertLineToCurrencyObject(line) };
+
+		if (StringUtils::ToUpper(currency.Country) == country)
+		{
+			file.close();
+			return currency;
+		}
+	}
+
+	file.close();
+
+	return Currency(Mode::Empty);
+}
+
+Currency Currency::FindByCode(std::string code)
+{
+	std::ifstream file{ "Currencies.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Currencies.txt\n";
+		return Currency(Mode::Empty);
+	}
+
+	code = StringUtils::ToUpper(code);
+
+	std::string line{};
+
+	while (getline(file, line))
+	{
+		Currency currency{ _ConvertLineToCurrencyObject(line) };
+
+		if (StringUtils::ToUpper(currency.Code) == code)
+		{
+			file.close();
+			return currency;
+		}
+	}
+
+	file.close();
+
+	return Currency(Mode::Empty);
+}

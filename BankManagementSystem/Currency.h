@@ -46,4 +46,7 @@ public:
 
 	bool IsEmpty() const;
 
+	static Currency FindByCountry(std::string country);
+	static Currency FindByCode(std::string code);
+
 };
