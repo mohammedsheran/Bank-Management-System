@@ -2,6 +2,9 @@
 #include "CurrencyCalculatorScreen.h"
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 Currency CurrencyCalculatorScreen::_GetCurrency(const string& message)
 {
@@ -9,6 +12,7 @@ Currency CurrencyCalculatorScreen::_GetCurrency(const string& message)
 
 	while (!Currency::IsCurrecnyExists(code))
 	{
+		Logger::Warning(LogMessages::currencyNotFound + " | Username: " + currentUser.Username + " | Currency Code: " + code);
 		cout << "\nCurrency Code \'" << code << "\' not found.\n";
 		code = InputUtils::ReadString("Enter another currency code: ");
 	}

@@ -3,6 +3,9 @@
 
 #include "CurrencyListScreen.h"
 #include "Libraries/Utils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 void CurrencyListScreen::_PrintCurrencyRecord(const Currency& currency)
 {
@@ -40,4 +43,6 @@ void CurrencyListScreen::ShowCurrencyListScreen()
     }
 
     cout << Utils::Divider(110) << endl;
+
+    Logger::Info(LogMessages::currencyListDisplayed);
 }

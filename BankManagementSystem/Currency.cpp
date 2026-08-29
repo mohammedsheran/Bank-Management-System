@@ -1,6 +1,9 @@
 
 #include "Currency.h"
 #include "Libraries/StringUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 #include <stdexcept>
 #include <fstream>
@@ -98,6 +101,7 @@ std::vector <Currency> Currency::_LoadCurrencies()
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenCurrenciesFile + " | Operation: Read");
 		cout << "Failed to open file: Currencies.txt\n";
 		return{};
 	}
@@ -125,6 +129,7 @@ bool Currency::_SaveCurrencies(const std::vector <Currency>& vCurrencies)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToSaveCurrenciesData + " | Username: " + currentUser.Username + " | Operation: Save");
 		cout << "Failed to open file: Currencies.txt\n";
 		return {};
 	}
@@ -144,6 +149,7 @@ Currency Currency::FindByCountry(std::string country)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenCurrenciesFile + " | Operation: Read");
 		cout << "Failed to open file: Currencies.txt\n";
 		return Currency(Mode::Empty);
 	}
@@ -174,6 +180,7 @@ Currency Currency::FindByCode(std::string code)
 
 	if (!file)
 	{
+		Logger::Error(LogMessages::failedToOpenCurrenciesFile + " | Operation: Read");
 		cout << "Failed to open file: Currencies.txt\n";
 		return Currency(Mode::Empty);
 	}

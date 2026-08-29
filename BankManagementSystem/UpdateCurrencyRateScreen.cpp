@@ -3,7 +3,9 @@
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
 #include "Libraries/Utils.h"
-
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 
 void UpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen()
@@ -14,6 +16,7 @@ void UpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen()
 
 	while (!Currency::IsCurrecnyExists(code))
 	{
+		Logger::Warning(LogMessages::currencyNotFound + " | Username: " + currentUser.Username + " | Currency Code: " + code);
 		cout << "\nCurrency Code \'" << code << "\' not found.\n";
 		code = InputUtils::ReadString("Enter another currency code: ");
 	}
@@ -27,17 +30,25 @@ void UpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen()
 	if (tolower(answer) != 'y')
 	{
 		cout << "\nOperation cancelled.\n";
+		Logger::Warning(LogMessages::operationCancelled + " | Username: " + currentUser.Username + " | Operation: Update Currency Rate");
 		return;
 	}
 
 	cout << "\nUpdate currency rate: \n";
 	cout << Utils::Divider(38);
 
-	float rate{ InputUtils::ReadFloat("\nEnter a new rate: ") };
+	float oldRate{ currency.Rate };
+	float newRate{ InputUtils::ReadFloat("\nEnter a new rate: ") };
 
-	currency.UpdateRate(rate);
+	currency.UpdateRate(newRate);
 
 	cout << "\nCurrency rate updated successfully.\n";
 
 	UIUtils::PrintCurrencyCard(currency);
+
+	Logger::Info(LogMessages::currencyRateUpdated 
+		+ " | Username: " + currentUser.Username 
+		+ " | Currency Code: " + currency.Code
+		+ " | Old Rate: " + to_string(oldRate)
+		+ " | New Rate: " + to_string(currency.Rate));
 }
