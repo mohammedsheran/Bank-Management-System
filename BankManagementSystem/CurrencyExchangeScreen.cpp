@@ -2,6 +2,7 @@
 #include "CurrencyExchangeScreen.h"
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
+#include "CurrencyListScreen.h"
 
 void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 {
@@ -74,7 +75,7 @@ void CurrencyExchangeScreen::_HandleCurrencyExchangeMenuOption(CurrencyExchangeM
 
 void CurrencyExchangeScreen::_ShowCurrencyListScreen()
 {
-	std::cout << "Currency List Scrren";
+	CurrencyListScreen::ShowCurrencyListScreen();
 }
 
 void CurrencyExchangeScreen::_ShowFindCurrencyScreen()
