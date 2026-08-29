@@ -4,6 +4,7 @@
 #include "Libraries/InputUtils.h"
 #include "CurrencyListScreen.h"
 #include "FindCurrencyScreen.h"
+#include "UpdateCurrencyRateScreen.h"
 
 void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 {
@@ -18,12 +19,12 @@ void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 	Screen::ShowScreenHeader("Currency Exchange Screen");
 
 	cout << Utils::Tab(4) << "[1] Currency List."
-		<< Utils::Tab(2) << "[3] Update Rate.\n";
+		<< Utils::Tab(2) << "[4] Currency Calculator.\n";
 
 	cout << Utils::Tab(4) << "[2] Find Currency."
 		<< Utils::Tab(2) << "[5] Main Menu.\n";
 
-	cout << Utils::Tab(4) << "[4] Currency Calculator.\n\n";
+	cout << Utils::Tab(4) << "[3] Update Rate.\n\n";
 
 	cout << Utils::Divider(110) << '\n';
 
@@ -87,7 +88,7 @@ void CurrencyExchangeScreen::_ShowFindCurrencyScreen()
 
 void CurrencyExchangeScreen::_ShowUpdateRateScreen()
 {
-	std::cout << "Update Rate Scrren";
+	UpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen();
 }
 
 void CurrencyExchangeScreen::_ShowCurrencyCalculatorScreen()
