@@ -224,3 +224,20 @@ std::vector <Currency> Currency::GetCurrecnyList()
 {
 	return _LoadCurrencies();
 }
+
+float Currency::ConvertToUSD(const float& amount) const
+{
+	return static_cast<float>(amount / _rate);
+}
+
+float Currency::ConvertToOtherCurrency(const float& amount, const Currency& currencyTo) const
+{
+	float amountInUSD{ ConvertToUSD(amount) };
+
+	if (currencyTo.Code == "USD")
+	{
+		return amountInUSD;
+	}
+
+	return static_cast<float>(amountInUSD * currencyTo.Rate);
+}

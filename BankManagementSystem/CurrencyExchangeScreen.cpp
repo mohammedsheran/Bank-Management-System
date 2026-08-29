@@ -5,6 +5,7 @@
 #include "CurrencyListScreen.h"
 #include "FindCurrencyScreen.h"
 #include "UpdateCurrencyRateScreen.h"
+#include "CurrencyCalculatorScreen.h"
 
 void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 {
@@ -64,7 +65,6 @@ void CurrencyExchangeScreen::_HandleCurrencyExchangeMenuOption(CurrencyExchangeM
 		break;
 
 	case CurrencyExchangeScreen::CurrencyExchangeMenuOptions::CurrencyCalculator:
-		Screen::ClearScreen();
 		_ShowCurrencyCalculatorScreen();
 		break;
 
@@ -93,5 +93,5 @@ void CurrencyExchangeScreen::_ShowUpdateRateScreen()
 
 void CurrencyExchangeScreen::_ShowCurrencyCalculatorScreen()
 {
-	std::cout << "Currency Calculator Scrren";
+	CurrencyCalculatorScreen::ShowCurrencyCalculatorScreen();
 }

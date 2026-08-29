@@ -55,4 +55,7 @@ public:
 
 	static std::vector <Currency> GetCurrecnyList();
 
+	float ConvertToUSD(const float& amount) const;
+
+	float ConvertToOtherCurrency(const float& amount, const Currency& currencyTo) const;
 };
