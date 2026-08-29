@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 class Currency
 {
@@ -23,6 +24,9 @@ private:
 
 	static Currency _ConvertLineToCurrencyObject(const std::string& line, const std::string& delimiter = "#:#");
 	static std::string _ConvertCurrencyObjectToLine(const Currency& currency, const std::string& separator = "#:#");
+
+	static std::vector <Currency> _LoadCurrencies();
+	static bool _SaveScurrencies(const std::vector <Currency>& vCurrencies);
 
 public:
 	Currency(const Mode& mode);

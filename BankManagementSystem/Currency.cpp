@@ -3,7 +3,7 @@
 #include "Libraries/StringUtils.h"
 
 #include <stdexcept>
-#include <vector>
+#include <fstream>
 
 std::string Currency::_RequireField(const std::string& str)
 {
@@ -87,4 +87,52 @@ std::string Currency::_ConvertCurrencyObjectToLine(const Currency& currency, con
 	line += to_string(currency._rate);
 
 	return line;
+}
+
+std::vector <Currency> Currency::_LoadCurrencies()
+{
+	std::vector <Currency> vCurrencies{};
+
+	std::ifstream file{ "Currencies.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Currencies.txt\n";
+		return{};
+	}
+
+	std::string line{};
+
+	while (getline(file, line))
+	{
+		vCurrencies.push_back(_ConvertLineToCurrencyObject(line));
+	}
+
+	file.close();
+
+	return vCurrencies;
+}
+
+bool Currency::_SaveScurrencies(const std::vector <Currency>& vCurrencies)
+{
+	if (vCurrencies.empty())
+	{
+		return {};
+	}
+
+	std::ofstream file{ "Currencies.txt" };
+
+	if (!file)
+	{
+		cout << "Failed to open file: Currencies.txt\n";
+		return {};
+	}
+
+	for (const auto& currency : vCurrencies)
+	{
+		file << _ConvertCurrencyObjectToLine(currency) << '\n';
+	}
+
+	file.close();
+	return true;
 }
