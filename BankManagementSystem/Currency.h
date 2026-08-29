@@ -21,6 +21,9 @@ private:
 	
 	static float _ValidateRate(const float& rate);
 
+	static Currency _ConvertLineToCurrencyObject(const std::string& line, const std::string& delimiter = "#:#");
+	static std::string _ConvertCurrencyObjectToLine(const Currency& currency, const std::string& separator = "#:#");
+
 public:
 	Currency(const Mode& mode);
 	Currency(const Mode& mode, const std::string& country, const std::string& code, const std::string& name, const float& rate);

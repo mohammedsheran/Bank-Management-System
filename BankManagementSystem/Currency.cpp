@@ -1,6 +1,9 @@
 
 #include "Currency.h"
+#include "Libraries/StringUtils.h"
+
 #include <stdexcept>
+#include <vector>
 
 std::string Currency::_RequireField(const std::string& str)
 {
@@ -55,4 +58,33 @@ float Currency::GetRate() const
 bool Currency::IsEmpty() const
 {
 	return _mode == Mode::Empty;
+}
+
+Currency Currency::_ConvertLineToCurrencyObject(const std::string& line, const std::string& delimiter)
+{
+	std::vector <std::string> vString{ StringUtils::Split(line, delimiter) };
+
+	if (vString.size() != 4)
+	{
+		return Currency(Mode::Empty);
+	}
+
+	return Currency(Mode::Update, vString[0], vString[1], vString[2], stof(vString[3]));
+}
+
+std::string Currency::_ConvertCurrencyObjectToLine(const Currency& currency, const std::string& separator)
+{
+	if (currency.IsEmpty())
+	{
+		return {};
+	}
+
+	std::string line{};
+
+	line += currency._country + separator;
+	line += currency._code + separator;
+	line += currency._name + separator;
+	line += to_string(currency._rate);
+
+	return line;
 }
