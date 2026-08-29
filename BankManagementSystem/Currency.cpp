@@ -219,3 +219,8 @@ bool Currency::_UpdateCurrency()
 
 	return _SaveCurrencies(vCurrencies);
 }
+
+std::vector <Currency> Currency::GetCurrecnyList()
+{
+	return _LoadCurrencies();
+}

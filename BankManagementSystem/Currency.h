@@ -53,4 +53,6 @@ public:
 
 	static bool IsCurrecnyExists(const std::string& code);
 
+	static std::vector <Currency> GetCurrecnyList();
+
 };
