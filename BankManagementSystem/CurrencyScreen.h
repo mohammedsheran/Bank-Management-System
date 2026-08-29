@@ -16,6 +16,10 @@ private:
 
 	CurrencyMenuOptions _ReadCurrencyMenuOption();
 
+	static void _ReturnToCurrencyMenu();
+
+	static void _HandleCurrencyMenuOption(CurrencyMenuOptions option);
+
 public:
 	static void ShowCurrencyMenuScreen();
 };

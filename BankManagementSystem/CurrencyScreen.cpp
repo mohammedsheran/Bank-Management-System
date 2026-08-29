@@ -25,3 +25,41 @@ CurrencyScreen::CurrencyMenuOptions CurrencyScreen::_ReadCurrencyMenuOption()
 	return static_cast<CurrencyMenuOptions>(option);
 }
 
+void CurrencyScreen::_ReturnToCurrencyMenu()
+{
+	Screen::PauseScreen("Press any key to return to Currency menu...");
+
+	ShowCurrencyMenuScreen();
+}
+
+
+void CurrencyScreen::_HandleCurrencyMenuOption(CurrencyMenuOptions option)
+{
+	switch (option)
+	{
+	case CurrencyScreen::CurrencyMenuOptions::CurrencyList:
+		Screen::ClearScreen();
+		break;
+
+	case CurrencyScreen::CurrencyMenuOptions::FindCurrency:
+		Screen::ClearScreen();
+
+		break;
+	
+	case CurrencyScreen::CurrencyMenuOptions::UpdateRate:
+		Screen::ClearScreen();
+
+		break;
+
+	case CurrencyScreen::CurrencyMenuOptions::CurrencyCalculator:
+		Screen::ClearScreen();
+
+		break;
+
+	case CurrencyScreen::CurrencyMenuOptions::MainMenu:
+		return;
+	}
+
+	_ReturnToCurrencyMenu();
+}
+
