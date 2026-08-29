@@ -4,7 +4,18 @@
 
 class CurrencyScreen : public Screen
 {
+private:
+	enum class CurrencyMenuOptions
+	{
+		CurrencyList = 1,
+		FindCurrency,
+		UpdateRate,
+		CurrencyCalculator,
+		MainMenu
+	};
+
+	CurrencyMenuOptions _ReadCurrencyMenuOption();
 
 public:
-	static void ShowCurrencyScreen();
+	static void ShowCurrencyMenuScreen();
 };
