@@ -53,7 +53,8 @@ public:
 		UpdateClient = 8,
 		FindClient = 16,
 		Transactions = 32,
-		ManageUsers = 64
+		ManageUsers = 64,
+		CurrencyExchange = 128
 	};
 
 	void SetPermissions(const short& permissions);

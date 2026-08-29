@@ -14,6 +14,7 @@ private:
         FindClient,
         Transactions,
         MangeUsers,
+        CurrencyExchange,
         Logout
 	};
 
@@ -34,6 +35,8 @@ private:
     static void _ShowTransactionsMenu();
 
     static void _ShowMangeUsersMenu();
+
+    static void _ShowCurrencyExchangeMenu();
 
     static void _Logout();
 

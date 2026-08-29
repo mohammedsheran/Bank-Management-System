@@ -9,6 +9,7 @@
 #include "FindClientScreen.h"
 #include "TransactionsScreen.h"
 #include "ManageUsersScreen.h"
+#include "CurrencyExchangeScreen.h"
 #include "Global.h"
 #include "Logger.h"
 #include "LogMessages.h"
@@ -19,16 +20,18 @@ void MainScreen::ShowMainMenuScreen()
 	Screen::ShowScreenHeader("Main Menu Screen");
 
     cout << Utils::Tab(4) << "[1] Show Client List."
-        << Utils::Tab(2) << "[5] Find Client.\n";
-
-    cout << Utils::Tab(4) << "[2] Add New Client."
         << Utils::Tab(2) << "[6] Transactions.\n";
 
-    cout << Utils::Tab(4) << "[3] Delete Client."
+    cout << Utils::Tab(4) << "[2] Add New Client."
         << Utils::Tab(2) << "[7] Manage Users.\n";
 
+    cout << Utils::Tab(4) << "[3] Delete Client."
+        << Utils::Tab(2) << "[8] Currency Exchange.\n";
+
     cout << Utils::Tab(4) << "[4] Update Client."
-        << Utils::Tab(2) << "[8] Logout.\n\n";
+        << Utils::Tab(2) << "[9] Logout.\n";
+
+    cout << Utils::Tab(4) << "[5] Find Client.\n\n";
 
     cout << Utils::Divider(110) << '\n';
 
@@ -37,7 +40,7 @@ void MainScreen::ShowMainMenuScreen()
 
 MainScreen::MainMenuOptions MainScreen::_ReadMainMenuOption()
 {
-    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-8]: ", static_cast<short>(1), static_cast<short>(8)) };
+    short option{ InputUtils::ReadNumberInRange("Choose what do you want to do [1-9]: ", static_cast<short>(1), static_cast<short>(9)) };
     return static_cast<MainMenuOptions>(option);
 }
 
@@ -77,6 +80,9 @@ void MainScreen::_HandleMainMenuOption(MainMenuOptions option)
         break;
     case MainScreen::MainMenuOptions::MangeUsers:
         _ShowMangeUsersMenu();
+        break;
+    case MainScreen::MainMenuOptions::CurrencyExchange:
+        _ShowCurrencyExchangeMenu();
         break;
     case MainScreen::MainMenuOptions::Logout:
         Screen::ClearScreen();
@@ -120,6 +126,11 @@ void MainScreen::_ShowTransactionsMenu()
 void MainScreen::_ShowMangeUsersMenu()
 {
     ManageUsersScreen::ShowManageUsersMenu();
+}
+
+void MainScreen::_ShowCurrencyExchangeMenu()
+{
+    CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen();
 }
 
 void MainScreen::_Logout()
