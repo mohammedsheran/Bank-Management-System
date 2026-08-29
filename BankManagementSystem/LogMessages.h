@@ -17,6 +17,9 @@ namespace LogMessages
 	const std::string userAdded{ "User Added Successfully" };
 	const std::string userUpdated{ "User Updated Successfully" };
 	const std::string userDeleted{ "User Deleted Successfully" };
+	const std::string currencyListDisplayed{ "Currency List Displayed" };
+	const std::string currencyFound{ "Currency Found" };
+	const std::string currencyRateUpdated{ "Currency Rate Updated Successfully" };
 	const std::string applicationClosed{ "Application Closed" };
 
 	// Warning
@@ -29,10 +32,13 @@ namespace LogMessages
 	const std::string transferFailed{ "Transfer Failed" };
 	const std::string accessDenied{ "Access Denied" };
 	const std::string operationCancelled{ "Operation Cancelled" };
+	const std::string currencyNotFound{ "Currency Not Found" };
 
 	// Error
 	const std::string failedToOpenClientsFile{ "Failed To Open Clients File" };
 	const std::string failedToSaveClientsData{ "Failed To Save Clients Data" };
 	const std::string failedToOpenUsersFile{ "Failed To Open Users File" };
 	const std::string failedToSaveUsersData{ "Failed To Save Users Data" };
+	const std::string failedToOpenCurrenciesFile{ "Failed To Open Currencies File" };
+	const std::string failedToSaveCurrenciesData{ "Failed To Save Currencies Data" };
 }

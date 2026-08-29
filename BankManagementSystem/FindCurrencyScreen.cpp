@@ -2,6 +2,9 @@
 #include "FindCurrencyScreen.h"
 #include "Libraries/InputUtils.h"
 #include "UIUtils.h"
+#include "Global.h"
+#include "Logger.h"
+#include "LogMessages.h"
 
 Currency FindCurrencyScreen::_FindCurrency()
 {
@@ -29,10 +32,12 @@ void FindCurrencyScreen::ShowFindCurrencyScreen()
 	if (currency.IsEmpty())
 	{
 		cout << "\nCurrency not found.\n";
+		Logger::Warning(LogMessages::currencyNotFound + " | Username: " + currentUser.Username + " | Currency Code: " + currency.Code);
 		return;
 	}
 
 	cout << "\nCurrency found.\n";
 
 	UIUtils::PrintCurrencyCard(currency);
+	Logger::Info(LogMessages::currencyFound + " | Currency Code: " + currency.Code);
 }
