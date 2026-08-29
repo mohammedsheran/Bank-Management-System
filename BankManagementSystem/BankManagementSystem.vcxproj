@@ -152,6 +152,7 @@
     <ClCompile Include="DeleteUserScreen.cpp" />
     <ClCompile Include="DepositScreen.cpp" />
     <ClCompile Include="FindClientScreen.cpp" />
+    <ClCompile Include="FindCurrencyScreen.cpp" />
     <ClCompile Include="FindUserScreen.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="Libraries\Date.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="DeleteUserScreen.h" />
     <ClInclude Include="DepositScreen.h" />
     <ClInclude Include="FindClientScreen.h" />
+    <ClInclude Include="FindCurrencyScreen.h" />
     <ClInclude Include="FindUserScreen.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Libraries\Date.h" />

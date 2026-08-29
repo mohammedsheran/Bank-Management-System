@@ -2,6 +2,7 @@
 
 #include "Client.h"
 #include "User.h"
+#include "Currency.h"
 
 class UIUtils
 {
@@ -12,5 +13,6 @@ public:
 
 	static short ReadUserPermissions();
 
+	static void PrintCurrencyCard(const Currency& currency);
 };
 

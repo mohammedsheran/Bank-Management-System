@@ -94,3 +94,14 @@ short UIUtils::ReadUserPermissions()
 
     return permissions;
 }
+
+void UIUtils::PrintCurrencyCard(const Currency& currency)
+{
+    cout << "\nThe following are Currency Record : \n";
+    cout << Utils::Divider(38);
+    cout << "\nCountry: " << currency.Country;
+    cout << "\nCode   : " << currency.Code;
+    cout << "\nName   : " << currency.Name;
+    cout << "\nRate(1$): " << currency.Rate << '\n';
+    cout << Utils::Divider(38) << '\n';
+}

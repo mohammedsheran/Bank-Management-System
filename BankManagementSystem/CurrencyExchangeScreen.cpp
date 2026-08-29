@@ -3,6 +3,7 @@
 #include "Libraries/Utils.h"
 #include "Libraries/InputUtils.h"
 #include "CurrencyListScreen.h"
+#include "FindCurrencyScreen.h"
 
 void CurrencyExchangeScreen::ShowCurrencyExchangeMenuScreen()
 {
@@ -80,7 +81,7 @@ void CurrencyExchangeScreen::_ShowCurrencyListScreen()
 
 void CurrencyExchangeScreen::_ShowFindCurrencyScreen()
 {
-	std::cout << "Find Currency Scrren";
+	FindCurrencyScreen::ShowFindCurrencyScreen();
 
 }
 
